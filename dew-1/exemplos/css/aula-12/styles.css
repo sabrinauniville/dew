@@ -1,0 +1,112 @@
+* {
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 1.875rem;
+  text-transform: uppercase;
+}
+
+p,
+a,
+ul,
+ol,
+mark,
+strong,
+em,
+span,
+b,
+i {
+  font-size: 1.25rem;
+}
+
+small {
+  font-size: 1rem;
+}
+
+.col {
+  width: 49%; /* duas colunas por linha */
+  display: inline-block; /* um elemento do lado do outro */
+}
+
+label, button {
+  text-align: center; /* textos centralizados */
+  margin-top: 10px;
+}
+
+label, input, menu {
+  width: 80%;
+  display: block;
+  margin-right: auto; /* elementos centralizados */
+  margin-left: auto;
+}
+
+p::first-letter {
+  text-transform: uppercase;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+#primary-list {
+  list-style: none;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+.banner {
+  height: 300px;
+  width: 300px;
+  background-image: url("https://img.freepik.com/vetores-gratis/fundo-de-formas-geometricas-triangulo-abstrato_1035-23057.jpg");
+  background-repeat: no-repeat;
+}
+
+.hide {
+  display: none;
+}
+
+/* all 2 */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding: 10px;
+  background-color: darkkhaki;
+}
+
+.header .nav {
+  text-align: center;
+}
+
+.header .nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* all 3 */
+body {
+  margin: 0;
+}
+
+/* all 4 */
+main {
+  padding: 20px;
+}
+
+a:hover {
+  opacity: 0.5;
+}
