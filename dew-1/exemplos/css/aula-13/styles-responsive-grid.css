@@ -1,0 +1,58 @@
+/* ct-tvs 1 */
+.products-list,
+.products-list li {
+  display: grid;
+}
+
+/* ct-tvs 2 */
+/* grid container */
+.products-list {
+  padding: 20px;
+  gap: 10px 20px; /* gap linha coluna */
+  grid-auto-flow: row; /* itens lado a lado */
+  grid-template-columns: 1fr 1fr 1fr; /* 3 colunas de largura igual */
+  justify-items: center; /* centraliza os itens no eixo da linha (direita-esquerda) */
+  align-items: stretch; /*  aumente os itens para preencher o espaço disponível no eixo da coluna (cima-baixo*/
+  align-content: center; /* centraliza o grid no eixo da coluna (cima-baixo) */
+  overflow: hidden;
+}
+
+/* grid item */
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.product img {
+  max-height: 150px;
+  max-width: 100%;
+}
+
+/* ct-tvs 6 */
+/* tablet */
+@media (max-width: 1024px) {
+  .products-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* celular */
+@media (max-width: 768px) {
+  .products-list {
+    grid-template-columns: 1fr;
+  }
+}
+
