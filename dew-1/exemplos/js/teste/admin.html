@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AprendaWeb Admin | Plataforma de Aprendizado</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="screen-blocker" class="screen-blocker hidden">
+    <div class="screen-blocker__message">Protegido contra cópia e captura de tela.</div>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">aprendaweb Admin</div>
+    <nav class="topbar__nav admin-nav">
+      <button id="btn-admin-login-toggle" class="nav-button active">Entrar</button>
+      <button id="btn-admin-panel-toggle" class="nav-button">Painel</button>
+      <button id="theme-toggle" class="nav-button" title="Alternar tema">🌙</button>
+    </nav>
+  </header>
+
+  <main class="page-grid">
+    <section id="admin-auth-panel" class="card auth-card">
+      <form id="admin-login-form" class="auth-form">
+        <h2>Login de administrador</h2>
+        <label>Email
+          <input type="email" id="admin-email" autocomplete="email" required />
+        </label>
+        <label>Senha
+          <input type="password" id="admin-password" autocomplete="current-password" required />
+        </label>
+        <button type="submit" class="button button-primary">Entrar</button>
+        <p class="hint">Use o e-mail de administrador para abrir o painel.</p>
+      </form>
+    </section>
+
+    <section id="admin-panel" class="admin-panel hidden">
+      <div class="student-header">
+        <div>
+          <span id="admin-name" class="student-name"></span>
+          <span class="student-role">administrador</span>
+        </div>
+        <button id="admin-logout-button" class="button button-secondary">Sair</button>
+      </div>
+
+      <div class="cards-grid admin-summary">
+        <article class="card summary-card">
+          <h3>Acadêmicos</h3>
+          <p id="admin-total-students">0</p>
+        </article>
+        <article class="card summary-card">
+          <h3>Média geral da turma</h3>
+          <p id="admin-average-total">0</p>
+        </article>
+        <article class="card summary-card">
+          <h3>Ranking ativo</h3>
+          <p id="admin-rank-count">0</p>
+        </article>
+        <article class="card summary-card">
+          <h3>Final liberado</h3>
+          <p id="admin-final-flag">Não</p>
+        </article>
+      </div>
+
+      <section class="card admin-section">
+        <div class="admin-section__header">
+          <h2>Configurar módulo e tentativas</h2>
+          <button id="admin-save-settings" class="button button-primary">Salvar configurações</button>
+        </div>
+        <div id="admin-module-settings" class="admin-form-grid"></div>
+      </section>
+
+      <section class="card admin-section">
+        <h2>Controle de turmas e ranking</h2>
+        <div class="form-row">
+          <label>Limite de tentativas</label>
+          <input type="number" id="admin-attempt-limit" min="1" max="5" />
+        </div>
+        <button id="admin-update-attempts" class="button button-secondary">Atualizar para todos</button>
+      </section>
+
+      <section class="card admin-section">
+        <h2>Gerenciamento rápido</h2>
+        <button id="admin-toggle-final" class="button button-primary">Liberar / Bloquear Final</button>
+        <button id="admin-send-email" class="button button-secondary">Enviar aviso por email</button>
+        <button id="admin-export-json" class="button button-secondary">Exportar backup JSON</button>
+        <button id="admin-export-pdf" class="button button-secondary">Exportar conteúdo em PDF</button>
+      </section>
+
+      <section class="card admin-section">
+        <h2>Rankings por turma</h2>
+        <div id="admin-ranking-list" class="ranking-list"></div>
+      </section>
+
+      <section class="card admin-section">
+        <h2>Gerenciar acadêmicos</h2>
+          <div class="form-row">
+            <label>Pesquisar acadêmico
+              <input type="search" id="admin-student-filter" placeholder="Nome, email ou turma" />
+            </label>
+            <div style="display:flex;align-items:center;gap:0.5rem">
+              <button id="admin-student-prev" class="button button-secondary">«</button>
+              <span id="admin-student-page">1</span>
+              <button id="admin-student-next" class="button button-secondary">»</button>
+            </div>
+          </div>
+          <div id="admin-student-list" class="admin-table"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+      <p>© 2026 Sabrina B. Moreira. Todos os direitos reservados. Uso educacional permitido.</p>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-FeYZvmV0xYmvly9bQtrqD3qnMBroQypnMwQ8G+wB0A1Tka8G9GDsxX3N2R7LyccXOiZeb3HGfDyOp44YvH9VwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

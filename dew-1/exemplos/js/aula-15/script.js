@@ -1,7 +1,8 @@
 /* Exercício 1 */
 let number1 = prompt("Digite o primeiro número:");
 let number2 = prompt("Digite o segundo número:");
-confirm("O resultado é: " + number1 + number2);
+let sum = Number(number1) + Number(number2);
+confirm("O resultado é: " + sum);
 
 /* Exercício 2 */
 function aprovacaoPorMediaSemestral(mediaDasNotas) {
