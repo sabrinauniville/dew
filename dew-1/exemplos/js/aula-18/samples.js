@@ -102,3 +102,44 @@ Como evitar: Certifique-se de que a variável de controle seja atualizada corret
 for (let k = 1; k <= 5; k++) {
   console.log("k: " + k);
 }
+
+// _____________________________________________________________________________________________________________________
+
+// Operador OR (||)
+// Retorna o primeiro valor verdadeiro encontrado
+// Ou seja, utiliza um valor padrão quando o valor à esquerda é considerado falso
+
+// Com o uso do OR
+let userName = "";
+console.log(userName || "Visitante"); // "Visitante"
+
+// Sem o uso do OR
+if (userName) {
+  console.log(userName);
+} else {
+  console.log("Visitante"); // "Visitante"
+}
+
+// Outro exemplo usando OR
+userName = "Sabrina";
+console.log(userName || "Visitante"); // "Sabrina"
+
+// _____________________________________________________________________________________________________________________
+
+// Operador Nullish Coalescing (??)
+// Define um valor padrão quando a variável é null ou undefined
+
+// Com o uso do Nullish
+let firstName = null;
+console.log(firstName ?? "Visitante"); // "Visitante"
+
+// Sem o uso do Nullish
+if (firstName === null || firstName === undefined) {
+  console.log("Visitante");
+} else {
+  console.log(firstName); // "Visitante"
+}
+
+// Outro exemplo do uso do Nullish
+firstName = "Sabrina";
+console.log(firstName ?? "Visitante"); // "Sabrina"

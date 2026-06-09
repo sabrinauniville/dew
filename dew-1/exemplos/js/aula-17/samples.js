@@ -115,47 +115,6 @@ console.log(city); // null
 
 // _____________________________________________________________________________________________________________________
 
-// Operador OR (||)
-// Retorna o primeiro valor verdadeiro encontrado
-// Ou seja, utiliza um valor padrão quando o valor à esquerda é considerado falso
-
-// Com o uso do OR
-let userName = "";
-console.log(userName || "Visitante"); // "Visitante"
-
-// Sem o uso do OR
-if (userName) {
-  console.log(userName);
-} else {
-  console.log("Visitante"); // "Visitante"
-}
-
-// Outro exemplo usando OR
-userName = "Sabrina";
-console.log(userName || "Visitante"); // "Sabrina"
-
-// _____________________________________________________________________________________________________________________
-
-// Operador Nullish Coalescing (??)
-// Define um valor padrão quando a variável é null ou undefined
-
-// Com o uso do Nullish
-let firstName = null;
-console.log(firstName ?? "Visitante"); // "Visitante"
-
-// Sem o uso do Nullish
-if (firstName === null || firstName === undefined) {
-  console.log("Visitante");
-} else {
-  console.log(firstName); // "Visitante"
-}
-
-// Outro exemplo do uso do Nullish
-firstName = "Sabrina";
-console.log(firstName ?? "Visitante"); // "Sabrina"
-
-// _____________________________________________________________________________________________________________________
-
 // Comparações curiosas
 0 == false; // true
 "" == false; // true
@@ -163,9 +122,10 @@ console.log(firstName ?? "Visitante"); // "Sabrina"
 null == undefined; // true
 null === undefined; // false
 
-// Recomenda-se utilizar sempre comparação estrita:
-5 === "5"; // false
-5 !== "5"; // true
+// Recomenda-se utilizar sempre comparação estrita
+// Para evitar a conversão automática de tipos para comparação
+5 === "5"; // false: valor igual mais tipo diferente, é igual = falso
+5 !== "5"; // true: valor igual mais tipo diferente, não é igual = verdadeiro
 
 // _____________________________________________________________________________________________________________________
 
