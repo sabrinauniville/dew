@@ -25,26 +25,26 @@ typeof 10.99; // "number"
 typeof "10"; // "string"
 typeof NaN; // "number"
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Número => string
 String(10); // "10"
 String(10.99); // "10.99"
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Número => booleano
 Boolean(1); // true
 Boolean(0); // false
 Boolean(-1); // true
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Booleano => número
 Number(true); // 1
 Number(false); // 0
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Valores Truthy e Falsy
 // Valores avaliados implicitamente como verdadeiro ou falso
@@ -58,13 +58,23 @@ Boolean(undefined); // false
 Boolean([]); // true
 Boolean({}); // true
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Operações entre strings e números
 
 // Soma
 // O número é convertido para string e ocorre concatenação
 "5" + 1; // "51"
+
+//Operações aritméticas devem ser feitos com tipos numéricos para evitar concatenação indesejada
+5 + Number("1");
+
+//Exemplos de conversão de tipo automática do JavaScript
+"5" - 1; // a string 5 é convertido automaticamente em numero e realizado a operação aritmética, resultando em 4
+5 + "1"; // o número 5 é convertindo automaticamente em texto e ocorre a concatenação, resultando em "51"
+
+// Forma correta de utilizar: converter tipos manualmente
+Number("5") - 1; // a string 5 é convertida manualmente em número e ocorre a operação aritmética, resultando em 4
 
 // Outras operações: o JavaScript tenta converter a string para número
 // Subtração
@@ -76,17 +86,19 @@ _______________________________________;
 // Divisão
 "5" / 1; // 5
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Conversões implícitas
 // O JavaScript converte automaticamente valores para realizar operações
 true + 1; // 2
+Number(true) + 1; // opção mais segura para operações aritméticas
+
 false + 1; // 1
 
 null + 1; // 1
 undefined + 1; // NaN
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Null e Undefined
 // Representam ausência de valor, mas possuem significados diferentes
@@ -101,7 +113,7 @@ console.log(name); // undefined
 let city = null;
 console.log(city); // null
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Operador OR (||)
 // Retorna o primeiro valor verdadeiro encontrado
@@ -122,7 +134,7 @@ if (userName) {
 userName = "Sabrina";
 console.log(userName || "Visitante"); // "Sabrina"
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // Operador Nullish Coalescing (??)
 // Define um valor padrão quando a variável é null ou undefined
@@ -141,7 +153,8 @@ if (firstName === null || firstName === undefined) {
 // Outro exemplo do uso do Nullish
 firstName = "Sabrina";
 console.log(firstName ?? "Visitante"); // "Sabrina"
-_______________________________________;
+
+// _____________________________________________________________________________________________________________________
 
 // Comparações curiosas
 0 == false; // true
@@ -154,7 +167,7 @@ null === undefined; // false
 5 === "5"; // false
 5 !== "5"; // true
 
-_______________________________________;
+// _____________________________________________________________________________________________________________________
 
 // MÉTODOS PARA STRINGS
 let languageName = "JavaScript";
@@ -168,7 +181,7 @@ console.log(languageName.length); // 10
 console.log(languageName.toUpperCase()); // JAVASCRIPT
 
 // toLowerCase()
-// Converte todos os caracteres para minúsculo
+// Converte todos os caracteres para minúsculo.
 console.log(languageName.toLowerCase()); // javascript
 
 // includes()
@@ -178,6 +191,13 @@ console.log(languageName.includes("Script")); // true
 // startsWith()
 // Verifica se a string inicia com o texto informado
 console.log(languageName.startsWith("Java")); // true
+
+// É necessário passar o caracter de mesma caixa que existe na string
+// Pois seus valores Unicode são diferentes
+console.log(languageName.startsWith("j")); // false, existe somente J em maiúsculo
+
+// Para evitar isso, transformamos todo o valor da variável em minusculo e buscamos pelo caracter minúsculo nele
+console.log(languageName.toLowerCase().startsWith("j")); // true, agora o J passou a ser mínusculo (pela função toLowerCase()) // e bateu com o caracter informado no startsWith
 
 // endsWith()
 // Verifica se a string termina com o texto informado
@@ -192,96 +212,4 @@ console.log(languageName.indexOf("w")); // -1, caractere não encontrado
 // Utilizam crases e ${} para inserir variáveis ou expressões
 console.log("Estamos aprendendo " + languageName + "!"); // Forma tradicional de concatenar strings
 console.log(`Estamos aprendendo ${languageName}!`); // Template strings utiliza crases e ${} para inserir variáveis ou expressões
-
-_______________________________________;
-
-// ESTRUTURAS CONDICIONAIS
-let mediaDasNotas = 7;
-
-// If
-// Executa um bloco de código quando a condição é verdadeira
-if (mediaDasNotas >= 6) {
-  console.log("Aprovado");
-}
-
-// If / Else
-// Executa um bloco se a condição for verdadeira e outro se for falsa
-if (mediaDasNotas >= 6) {
-  console.log("Aprovado");
-} else {
-  console.log("Reprovado");
-}
-
-// Else If
-// Permite testar múltiplas condições em sequência
-if (mediaDasNotas >= 9) {
-  console.log("Aprovação com mérito");
-} else if (mediaDasNotas >= 6) {
-  console.log("Aprovado");
-} else {
-  console.log("Reprovado");
-}
-
-// Operador Ternário
-// Forma reduzida de escrever uma condição simples
-mediaDasNotas >= 6 ? console.log("Aprovado") : console.log("Reprovado");
-
-// Switch
-// Executa blocos de código com base em diferentes valores possíveis
-let day = 2;
-// day = 0;
-
-switch (day) {
-  case 1:
-    console.log("Domingo");
-    break;
-
-  case 2:
-    console.log("Segunda-feira");
-    break;
-
-  case 3:
-    console.log("Terça-feira");
-    break;
-
-  default:
-    console.log("Dia inválido"); // Se nenhum case for encontrado, o bloco default será executado
-}
-
-_______________________________________;
-
-// LOOPS
-// Permitem repetir um bloco de código várias vezes
-
-// While
-// Repete um bloco de código enquanto uma condição for verdadeira
-let i = 1;
-
-while (i <= 5) {
-  console.log("i: " + i);
-  i++;
-}
-
-// Do While
-// Executa o bloco ao menos uma vez e continua repetindo enquanto a condição for verdadeira
-let j = 1;
-
-do {
-  console.log("j: " + j);
-  j++;
-} while (j <= 5);
-
-/* Loop infinito
-Ocorre quando a condição de parada nunca é atingida
-
-while (true) {
-  console.log("Loop infinito");
-}
-
-Como evitar: Certifique-se de que a variável de controle seja atualizada corretamente */
-
-// For
-// Utilizado quando a quantidade de repetições é conhecida e há uma variável de controle
-for (let k = 1; k <= 5; k++) {
-  console.log("k: " + k);
-}
+// quando temos expressões longas de concatenação de textos e variáveis, se torna mais fácil utilizar o Template Strings
