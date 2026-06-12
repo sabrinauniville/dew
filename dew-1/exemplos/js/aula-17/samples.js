@@ -201,6 +201,20 @@ undefined + 1; // NaN
 
 // _____________________________________________________________________________________________________________________
 
+// MÉTODOS PARA NÚMEROS
+(10.567).toFixed(2); // 10.57, define quantas casas decimais o número deve ter
+(10).toString(); // "10", converte número em string
+NaN.toString(); // "NaN", converte número em string
+Number.isNaN(NaN); // true, verifica se um número é um NaN
+Number.isInteger(10); // true, verifica se um número é inteiro
+Number.isInteger(10.9); // false, verifica se um número é inteiro
+parseInt("10.9"); // 10, converte um valor para inteiro
+parseInt(10.9); // 10, converte um valor para inteiro
+parseFloat("10.9"); // 10.9 converte um valor para decimal
+parseFloat(Infinity); // Infinity, converte um valor para decimal
+
+// _____________________________________________________________________________________________________________________
+
 // MÉTODOS PARA STRINGS
 let languageName = "JavaScript";
 
@@ -216,6 +230,10 @@ console.log(languageName.toUpperCase()); // JAVASCRIPT
 // Converte todos os caracteres para minúsculo.
 console.log(languageName.toLowerCase()); // javascript
 
+// trim()
+// Remove os espaços em branco em volta da string
+console.log(" JavaScript  ".trim()); // JavaScript
+
 // includes()
 // Verifica se a string contém um trecho informado
 console.log(languageName.includes("Script")); // true
@@ -223,11 +241,9 @@ console.log(languageName.includes("Script")); // true
 // startsWith()
 // Verifica se a string inicia com o texto informado
 console.log(languageName.startsWith("Java")); // true
-
 // É necessário passar o caracter de mesma caixa que existe na string
 // Pois seus valores Unicode são diferentes
 console.log(languageName.startsWith("j")); // false, existe somente J em maiúsculo
-
 // Para evitar isso, transformamos todo o valor da variável em minusculo e buscamos pelo caracter minúsculo nele
 console.log(languageName.toLowerCase().startsWith("j")); // true, agora o J passou a ser mínusculo (pela função toLowerCase()) // e bateu com o caracter informado no startsWith
 
@@ -235,10 +251,38 @@ console.log(languageName.toLowerCase().startsWith("j")); // true, agora o J pass
 // Verifica se a string termina com o texto informado
 console.log(languageName.endsWith("Script")); // true
 
+// replace()
+// Substitui a primeira ocorrência de uma string por outra
+console.log(languageName.replace("Java", "Type")); //TypeScript
+
+// replaceAll()
+// Substitui todas as ocorrência encontradas de uma string por outra
+console.log(languageName.replaceAll("a", "A")); //JAvAcript
+
+// split()
+// Divide uma string em um array pelo separador indicado
+console.log("JavaScript, HTML, CSS".split(",")); //(3) ['JavaScript', ' HTML', ' CSS']
+
+// substring()
+// Extrai parte de uma string utilizando posição inicial e final
+languageName.substring(0, 4); //Java
+
+// slice()
+// Extrai parte de uma string e aceita índices negativos
+languageName.slice(-6); //'Script'
+
+// charAt()
+// Retorna o caractere de uma posição específica da string
+languageName.charAt(4); // S
+
 // indexOf()
 // Retorna a posição da primeira ocorrência encontrada
 console.log(languageName.indexOf("a")); // 1
 console.log(languageName.indexOf("w")); // -1, caractere não encontrado
+
+// MÉTODOS PARA BOOLEANOS
+true.toString(); // true
+true.valueOf(); // true
 
 // Template Strings
 // Utilizam crases e ${} para inserir variáveis ou expressões
