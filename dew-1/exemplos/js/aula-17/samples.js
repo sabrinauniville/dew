@@ -1,3 +1,5 @@
+//Aula 17.1: Conversão de tipos, estruturas condicionais, operador ternário e Switch
+
 // CONVERSÃO DE TIPOS
 
 // String => número
@@ -98,33 +100,6 @@ true.toString(); // 'true'
 
 // _____________________________________________________________________________________________________________________
 
-// Número => booleano
-Boolean(1); // true
-Boolean(0); // false
-Boolean(-1); // true
-
-// _____________________________________________________________________________________________________________________
-
-// Booleano => número
-Number(true); // 1
-Number(false); // 0
-
-// _____________________________________________________________________________________________________________________
-
-// Valores Truthy e Falsy
-// Valores avaliados implicitamente como verdadeiro ou falso
-
-Boolean(""); // false
-Boolean("JavaScript"); // true
-
-Boolean(null); // false
-Boolean(undefined); // false
-
-Boolean([]); // true
-Boolean({}); // true
-
-// _____________________________________________________________________________________________________________________
-
 // Operações entre strings e números
 
 // Soma
@@ -153,6 +128,67 @@ Number("5") - 1; // a string 5 é convertida manualmente em número e ocorre a o
 
 // _____________________________________________________________________________________________________________________
 
+// BOOLEAN
+// Exemplo comum de uso de booleanos
+let tentativas = 0;
+const senhaCorreta = "123";
+let senhaInformada = "";
+
+while (tentativas < 3) {
+  // Controle de fluxo
+  senhaInformada = prompt("Digite a senha:");
+
+  const senhaValida = senhaInformada === senhaCorreta; // Validação
+
+  if (senhaValida) {
+    // Estrutura de decisão
+    console.log("Acesso permitido.");
+    alert("Acesso permitido.");
+    break;
+  } else {
+    console.log("Senha incorreta.");
+  }
+
+  tentativas++;
+}
+
+// Número => booleano
+// Qualquer número diferente de 0 retornará true
+Boolean(1); // true
+Boolean(100); // true
+Boolean(-1); // true
+Boolean(0); // false
+
+// Qualquer string que tenha algum caracter (inclusive espaços) retornará true
+Boolean("JavaScript"); // true
+Boolean("Olá"); // true
+Boolean("1"); // true
+Boolean("A"); // true
+Boolean(" "); // true
+Boolean(""); // false
+
+// Null e undefined retornam falso
+Boolean(null); // false
+Boolean(undefined); // false
+
+// Objetos e arrays: mesmo vazios são considerados true
+Boolean({}); // true
+Boolean([]); // true
+
+// Booleano => número
+Number(true); // 1
+Number(false); // 0
+
+// Booleano => texto
+true.toString(); // "true"
+false.toString(); // "false"
+
+// Conversão implicita de boleanos
+true + 1; // 2
+false + 1; // 1
+true * 10; // 10
+false / 10; // 0
+
 // Conversões implícitas
 // O JavaScript converte automaticamente valores para realizar operações
 true + 1; // 2
@@ -162,35 +198,6 @@ false + 1; // 1
 
 null + 1; // 1
 undefined + 1; // NaN
-
-// _____________________________________________________________________________________________________________________
-
-// Null e Undefined
-// Representam ausência de valor, mas possuem significados diferentes
-
-// Undefined
-// A variável foi declarada, mas ainda não recebeu valor
-let name;
-console.log(name); // undefined
-
-// Null
-// A ausência de valor foi definida intencionalmente pelo programador
-let city = null;
-console.log(city); // null
-
-// _____________________________________________________________________________________________________________________
-
-// Comparações curiosas
-0 == false; // true
-"" == false; // true
-
-null == undefined; // true
-null === undefined; // false
-
-// Recomenda-se utilizar sempre comparação estrita
-// Para evitar a conversão automática de tipos para comparação
-5 === "5"; // false: valor igual mais tipo diferente, é igual = falso
-5 !== "5"; // true: valor igual mais tipo diferente, não é igual = verdadeiro
 
 // _____________________________________________________________________________________________________________________
 
@@ -238,3 +245,125 @@ console.log(languageName.indexOf("w")); // -1, caractere não encontrado
 console.log("Estamos aprendendo " + languageName + "!"); // Forma tradicional de concatenar strings
 console.log(`Estamos aprendendo ${languageName}!`); // Template strings utiliza crases e ${} para inserir variáveis ou expressões
 // quando temos expressões longas de concatenação de textos e variáveis, se torna mais fácil utilizar o Template Strings
+
+_____________________________________________________________________________________________________________________;
+
+// Função
+// Bloco de código reutilizável para evitar repetição de código
+function saudar() {
+  console.log("Olá!");
+}
+
+console.log(saudar());
+
+// Função com recebimento de parâmetros e retorno
+function sum(number1, number2) {
+  // os parametros number1 e number2 são recebidos pela função sum
+  return Number(number1) + Number(number2);
+  // O return permite que uma função devolva um valor para quem a chamou
+}
+
+console.log(sum(1, 1)); // 1 e 1 são passados como parâmetro e o resultado é 2
+console.log(sum(2, 3)); // 2 e 3 são passados como parâmetro e o resultado é 5
+_____________________________________________________________________________________________________________________;
+
+// ESTRUTURAS CONDICIONAIS
+let mediaDasNotas = 7;
+
+// If
+// Executa um bloco de código quando a condição é verdadeira
+if (mediaDasNotas >= 6) {
+  console.log("Aprovado");
+}
+
+// _____________________________________________________________________________________________________________________
+
+// If / Else
+// Executa um bloco se a condição for verdadeira e outro se for falsa
+if (mediaDasNotas >= 6) {
+  console.log("Aprovado");
+} else {
+  console.log("Reprovado");
+}
+
+// _____________________________________________________________________________________________________________________
+
+// Else If
+// Permite testar múltiplas condições em sequência
+if (mediaDasNotas >= 9) {
+  console.log("Aprovação com mérito");
+} else if (mediaDasNotas >= 6) {
+  console.log("Aprovado");
+} else {
+  console.log("Reprovado");
+}
+
+// _____________________________________________________________________________________________________________________
+
+// Operador Ternário
+// Forma reduzida de escrever uma condição simples
+mediaDasNotas >= 6 ? console.log("Aprovado") : console.log("Reprovado");
+
+// _____________________________________________________________________________________________________________________
+
+// Switch
+// Executa blocos de código com base em diferentes valores possíveis
+
+let situacao = "Aprovado";
+switch (situacao) {
+  case "Aprovação com mérito":
+    console.log("Parabéns pelo excelente desempenho!");
+    break;
+
+  case "Aprovado":
+    console.log("Aluno aprovado.");
+    break;
+
+  case "Reprovado":
+    console.log("Aluno reprovado.");
+    break;
+
+  default:
+    console.log("Situação inválida.");
+}
+
+// _____________________________________________________________________________________________________________________
+
+// Operador OR (||)
+// Retorna o primeiro valor verdadeiro encontrado
+// Ou seja, utiliza um valor padrão quando o valor à esquerda é considerado falso
+
+// Com o uso do OR
+let userName = "";
+console.log(userName || "Visitante"); // "Visitante"
+
+// Sem o uso do OR
+if (userName) {
+  console.log(userName);
+} else {
+  console.log("Visitante"); // "Visitante"
+}
+
+// Outro exemplo usando OR
+userName = "Sabrina";
+console.log(userName || "Visitante"); // "Sabrina"
+
+// _____________________________________________________________________________________________________________________
+
+// Operador Nullish Coalescing (??)
+// Define um valor padrão quando a variável é null ou undefined
+
+// Com o uso do Nullish
+let firstName = null;
+console.log(firstName ?? "Visitante"); // "Visitante"
+
+// Sem o uso do Nullish
+if (firstName === null || firstName === undefined) {
+  console.log("Visitante");
+} else {
+  console.log(firstName); // "Visitante"
+}
+
+// Outro exemplo do uso do Nullish
+firstName = "Sabrina";
+console.log(firstName ?? "Visitante"); // "Sabrina"
