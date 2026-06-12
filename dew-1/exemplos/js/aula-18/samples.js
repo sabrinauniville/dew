@@ -1,5 +1,19 @@
 // _____________________________________________________________________________________________________________________
 
+// valores truthy e falsy
+if ("") {
+}
+if (0) {
+}
+if (null) {
+}
+if (undefined) {
+}
+if ([]) {
+}
+if ({}) {
+}
+
 // ESTRUTURAS CONDICIONAIS
 let mediaDasNotas = 7;
 

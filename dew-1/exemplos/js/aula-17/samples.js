@@ -24,12 +24,77 @@ typeof 10; // "number"
 typeof 10.99; // "number"
 typeof "10"; // "string"
 typeof NaN; // "number"
+typeof null; // object
+typeof undefined; // undefined
+
+// Outro exemplo de verificação de tipo
+let dynamicTyping = 10;
+typeof dynamicTyping;
+
+dynamicTyping = "dez";
+typeof dynamicTyping;
+
+dynamicTyping = "10";
+typeof dynamicTyping;
+
+dynamicTyping = true;
+typeof dynamicTyping;
+
+// Verificação de tipo e conversão
+let firstValue = "5";
+let secondValue = 1;
+firstValue + secondValue;
+firstValue - secondValue;
+
+typeof firstValue;
+typeof secondValue;
+
+Number(firstValue) + secondValue;
+firstValue - secondValue;
+
+// Erro de validação de tipo com null
+// É indicado usar comparação estrita e não typeof para validar valores null.
+typeof null; // 'object'
+
+// Usar comparação estrita
+null === null; // true
+
+// e não fazer isso
+typeof null === "object"; // true
+
+// Essa falha do js não acontece com o tipo undefined
+typeof undefined; // undefined
+undefined === undefined; // true
+
+let nullValue = null;
+typeof nullValue;
+
+// Não use essa verificação, pois pode causar problemas em verificação de tipo objetos
+typeof null === "object";
+
+// Prefira
+nullValue === null;
 
 // _____________________________________________________________________________________________________________________
 
 // Número => string
+// String
 String(10); // "10"
 String(10.99); // "10.99"
+String(true); // 'true'
+String(null); // 'null'
+String(undefined); // 'undefined'
+String({ name: "oi", id: 1 }); // '[object Object]'
+
+// toString
+(10).toString(); // '10'
+(10.99).toString(); // '10.99'
+true.toString(); // 'true'
+/*
+(null).toString(); // Uncaught TypeError: Cannot read properties of null (reading 'toString')
+(undefined).toString(); // Uncaught TypeError: Cannot read properties of undefined (reading 'toString')
+*/
+({ name: "oi", id: 1 }).toString(); // '[object Object]'
 
 // _____________________________________________________________________________________________________________________
 
