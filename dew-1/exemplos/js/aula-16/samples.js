@@ -228,6 +228,16 @@ x = undefined; // Significa "nenhum valor foi definido ainda"
 3 % 2; // módulo, resultado é 1 (resto da divisão de 3 por 2)
 3 ** 2; // exponenciação, resultado é 9 (3 elevado a 2)
 
+// Operações com textos
+// Operações aritméticas (exceto soma) com valores numéricos no tipo string serão
+// convertidas automaticamente para poder realizar as operações aritméticas.
+"3" - 2; // 1
+3 - "2"; // 1
+"3" - "2"; // 1
+3 - "um"; // NaN
+3 * "1"; // 3
+"3" / "1"; // 3
+
 // _____________________________________________________________________________________________________________________
 
 // 2 OPERADORES DE ATRIBUIÇÃO
