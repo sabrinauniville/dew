@@ -31,16 +31,13 @@ typeof undefined; // undefined
 
 // Outro exemplo de verificação de tipo
 let dynamicTyping = 10;
-typeof dynamicTyping;
+console.log(typeof dynamicTyping); // "number"
 
 dynamicTyping = "dez";
-typeof dynamicTyping;
-
-dynamicTyping = "10";
-typeof dynamicTyping;
+console.log(typeof dynamicTyping); // "string"
 
 dynamicTyping = true;
-typeof dynamicTyping;
+console.log(typeof dynamicTyping); // "boolean"
 
 // Verificação de tipo e conversão
 let firstValue = "5";
@@ -192,7 +189,7 @@ false / 10; // 0
 // Conversões implícitas
 // O JavaScript converte automaticamente valores para realizar operações
 true + 1; // 2
-Number(true) + 1; // opção mais segura para operações aritméticas
+Number(true) + 1; // conversão explícita e mais previsível
 
 false + 1; // 1
 
@@ -254,18 +251,19 @@ console.log(languageName.endsWith("Script")); // true
 // replace()
 // Substitui a primeira ocorrência de uma string por outra
 console.log(languageName.replace("Java", "Type")); //TypeScript
+"banana".replace("a", "A"); // bAnana
 
 // replaceAll()
 // Substitui todas as ocorrência encontradas de uma string por outra
-console.log(languageName.replaceAll("a", "A")); //JAvAcript
+console.log(languageName.replaceAll("a", "A")); //JAvAScript
 
 // split()
 // Divide uma string em um array pelo separador indicado
-console.log("JavaScript, HTML, CSS".split(",")); //(3) ['JavaScript', ' HTML', ' CSS']
+console.log("JavaScript, HTML, CSS".split(",")); //(3) ["JavaScript", " HTML", " CSS"] os espaços após a vírgula permanecem nos itens gerados
 
 // substring()
 // Extrai parte de uma string utilizando posição inicial e final
-languageName.substring(0, 4); //Java
+languageName.substring(0, 4); // "Java"
 
 // slice()
 // Extrai parte de uma string e aceita índices negativos
@@ -273,7 +271,7 @@ languageName.slice(-6); //'Script'
 
 // charAt()
 // Retorna o caractere de uma posição específica da string
-languageName.charAt(4); // S
+languageName.charAt(4); // S, índices começam em 0
 
 // indexOf()
 // Retorna a posição da primeira ocorrência encontrada
@@ -298,7 +296,7 @@ function saudar() {
   console.log("Olá!");
 }
 
-console.log(saudar());
+console.log(saudar()); // Exibe "Olá!" e depois undefined, pois a função não retorna nenhum valor
 
 // Função com recebimento de parâmetros e retorno
 function sum(number1, number2) {
@@ -312,11 +310,13 @@ console.log(sum(2, 3)); // 2 e 3 são passados como parâmetro e o resultado é 
 _____________________________________________________________________________________________________________________;
 
 // ESTRUTURAS CONDICIONAIS
-let mediaDasNotas = 7;
+let mediaDeNotas = 7;
+const mediaParaAprovacao = 6;
+const mediaParaMerito = 9;
 
 // If
 // Executa um bloco de código quando a condição é verdadeira
-if (mediaDasNotas >= 6) {
+if (mediaDeNotas >= mediaParaAprovacao) {
   console.log("Aprovado");
 }
 
@@ -324,7 +324,7 @@ if (mediaDasNotas >= 6) {
 
 // If / Else
 // Executa um bloco se a condição for verdadeira e outro se for falsa
-if (mediaDasNotas >= 6) {
+if (mediaDeNotas >= mediaParaAprovacao) {
   console.log("Aprovado");
 } else {
   console.log("Reprovado");
@@ -334,9 +334,9 @@ if (mediaDasNotas >= 6) {
 
 // Else If
 // Permite testar múltiplas condições em sequência
-if (mediaDasNotas >= 9) {
+if (mediaDeNotas >= mediaParaMerito) {
   console.log("Aprovação com mérito");
-} else if (mediaDasNotas >= 6) {
+} else if (mediaDeNotas >= mediaParaAprovacao) {
   console.log("Aprovado");
 } else {
   console.log("Reprovado");
@@ -346,7 +346,9 @@ if (mediaDasNotas >= 9) {
 
 // Operador Ternário
 // Forma reduzida de escrever uma condição simples
-mediaDasNotas >= 6 ? console.log("Aprovado") : console.log("Reprovado");
+mediaDeNotas >= mediaParaAprovacao
+  ? console.log("Aprovado")
+  : console.log("Reprovado");
 
 // _____________________________________________________________________________________________________________________
 
@@ -374,40 +376,18 @@ switch (situacao) {
 // _____________________________________________________________________________________________________________________
 
 // Operador OR (||)
-// Retorna o primeiro valor verdadeiro encontrado
-// Ou seja, utiliza um valor padrão quando o valor à esquerda é considerado falso
-
-// Com o uso do OR
+// Utiliza um valor padrão quando o valor à esquerda é considerado falso
 let userName = "";
 console.log(userName || "Visitante"); // "Visitante"
 
-// Sem o uso do OR
-if (userName) {
-  console.log(userName);
-} else {
-  console.log("Visitante"); // "Visitante"
-}
-
-// Outro exemplo usando OR
 userName = "Sabrina";
 console.log(userName || "Visitante"); // "Sabrina"
 
 // _____________________________________________________________________________________________________________________
 
 // Operador Nullish Coalescing (??)
-// Define um valor padrão quando a variável é null ou undefined
+// Utiliza um valor padrão apenas quando o valor é null ou undefined
+console.log(userName ?? "Visitante"); // Sabrina
 
-// Com o uso do Nullish
-let firstName = null;
-console.log(firstName ?? "Visitante"); // "Visitante"
-
-// Sem o uso do Nullish
-if (firstName === null || firstName === undefined) {
-  console.log("Visitante");
-} else {
-  console.log(firstName); // "Visitante"
-}
-
-// Outro exemplo do uso do Nullish
-firstName = "Sabrina";
-console.log(firstName ?? "Visitante"); // "Sabrina"
+userName = null;
+console.log(userName ?? "Visitante"); // "Visitante"

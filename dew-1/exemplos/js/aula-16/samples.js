@@ -1,4 +1,6 @@
 // FORMAS DE DECLARAR VARIÁVEIS
+// 1 var
+// É apresentado por motivos históricos. Em aplicações modernas, prefira const e let.
 // var: declaração e reatribuição de valor
 {
   // Bloco de código 1
@@ -94,6 +96,7 @@
 {
   // Bloco de código 1
   const myName; // declaração e sem atribuição de valor no bloco 1
+  // SyntaxError: Missing initializer in const declaration
 }
 
 // const: redeclaração de variáveis com mesmo nome em blocos diferentes (permitido)
@@ -129,7 +132,7 @@ console.log(x); // NaN
 
 // NaN comparações
 // NaN: forma errada de identificar se um valor é NaN
-NaN == NaN; // false, NaN não é igual ao valro de NaN
+NaN == NaN; // false, NaN não é igual ao valor de NaN
 NaN === NaN; // false, NaN não é igual em valor e tipo com NaN
 
 NaN != NaN; // true, NaN tem valor diferente de NaN
@@ -138,15 +141,14 @@ NaN !== NaN; // true, NaN tem valor e tipo diferente de NaN
 // NaN: forma correta de identificar se um valor é NaN
 // isNaN(): existe mais raramente é indicado por realizar conversões automática de tipos
 isNaN("oi"); // true, porque a conversão dessa string para número resulta em NaN
-// a função identifica que o valor passo não é do tipo numérico
-// E tenta converter essa valor para número
-// Pois o NaN é do tipo numérico então só pode ser comparado com outro número
+// A função tenta converter o valor recebido para Number
+// Se o resultado da conversão for NaN, retorna true
 isNaN(Number("oi"));
-// Como não é possível converter um palavra em número, retorna como resultado NaN.
-// O uso da isNaN deve ser exclusivamente para valores numéricos ou que podem ser convertidos corretamente aos mesmos.
+// Como não é possível converter um palavra em número, retorna como resultado NaN
+// O uso da isNaN deve ser exclusivamente para valores numéricos ou que podem ser convertidos corretamente aos mesmos
 
 // Já o Number.isNaN() identifica que o valor comparado é uma string e não tenta fazer conversões
-// E como uma string não é número, resulta em false, pois NaN é do tipo numérico.
+// E como uma string não é número, resulta em false, pois NaN é do tipo numérico
 Number.isNaN("oi"); // false, string não é do tipo numérico portanto não pode ser NaN
 
 // O Number.isNaN(): função indicada para verificação de NaN, não realiza conversão de tipo automaticamente
@@ -167,8 +169,8 @@ Number.isNaN(3 - "1"); // false, é um número 2
 isNaN(NaN); // true, NaN é um NaN
 Number.isNaN(NaN); // true, NaN é um NaN
 
-isNaN(0 / 0); // true, a conversão da string "0/0" resulta em NaN
-Number.isNaN(0 / 0); // true, a conversão da string "0/0" resulta em NaN
+isNaN(0 / 0); // true, a operação matemática gera NaN
+Number.isNaN(0 / 0); // true, a operação matemática gera NaN
 
 // uso indicado do isNaN() em vez do Number.isNaN()
 // caso 1
@@ -228,15 +230,26 @@ x = undefined; // Significa "nenhum valor foi definido ainda"
 3 % 2; // módulo, resultado é 1 (resto da divisão de 3 por 2)
 3 ** 2; // exponenciação, resultado é 9 (3 elevado a 2)
 
+// Concatenação
+// O operador + é especial porque pode significar tanto soma quanto concatenação de strings
+// A concatenação é o processo de unir dois ou mais valores em uma única sequência de texto
+// É normalmente realizada utilizando o operador + ou por meio de template strings
+// Permitindo combinar strings, variáveis e outros valores para formar uma nova string
+"3" + "2"; // 32
+3 + "2"; // 32
+"3" + 2; // 32
+"a" + "b" + "C"; // abC
+
 // Operações com textos
 // Operações aritméticas (exceto soma) com valores numéricos no tipo string serão
 // convertidas automaticamente para poder realizar as operações aritméticas.
 "3" - 2; // 1
 3 - "2"; // 1
 "3" - "2"; // 1
-3 - "um"; // NaN
+
 3 * "1"; // 3
 "3" / "1"; // 3
+3 - "um"; // NaN
 
 // _____________________________________________________________________________________________________________________
 
