@@ -1,5 +1,3 @@
-//Aula 17.1: Conversão de tipos, estruturas condicionais, operador ternário e Switch
-
 // CONVERSÃO DE TIPOS
 
 // String => número
