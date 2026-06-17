@@ -1,18 +1,38 @@
 // LAÇOS DE REPETIÇÃO (LOOPS)
 // Permitem repetir um bloco de código várias vezes
 
+// For
+// Utilizado quando a quantidade de repetições é conhecida
+
+// For variação 1
+for (
+  let k = 1; // Variável de controle
+  k <= 5; // Condição de continuação
+  k++ // Atualização da variável de controle, equivalente a k = k + 1;
+) {
+  console.log("k: " + k); // k: 1, k: 2, k: 3, k: 4, k: 5
+}
+
+// For variação 2
+for (let k = 1; k <= 5; k = k + 1) {
+  console.log("k: " + k); // k: 1, k: 2, k: 3, k: 4, k: 5
+}
+
+// For com decremento da variável de controle
+for (let k = 5; k >= 1; k--) {
+  console.log("k: " + k); // k: 5, k: 4, k: 3, k: 2, k: 1
+}
+_____________________________________________________________________________________________________________________;
+
 // While
 // Repete um bloco de código enquanto uma condição for verdadeira
 // Usado quando não sabemos quantas repetições serão necessárias
 
 let i = 1; // Variável de controle
-
 while (i <= 5) {
   // Condição de continuação
-
   console.log("i: " + i);
-
-  i++; // Atualização da variável de controle
+  i++; // Atualização da variável de controle, equivalente a i = i + 1;
 }
 
 // _____________________________________________________________________________________________________________________
@@ -24,8 +44,7 @@ let j = 1;
 
 do {
   console.log("j: " + j);
-
-  j++;
+  j++; // Atualização da variável de controle, equivalente a j = j + 1;
 } while (j <= 5);
 
 /*
@@ -58,28 +77,6 @@ while (i <= 5) {
 
 // _____________________________________________________________________________________________________________________
 
-// For
-// Utilizado quando a quantidade de repetições é conhecida
-
-for (
-  let k = 1; // Variável de controle
-  k <= 5; // Condição de continuação
-  k++ // Atualização da variável de controle
-) {
-  console.log("k: " + k);
-}
-
-/*
-k = 1 → imprime 1
-k = 2 → imprime 2
-k = 3 → imprime 3
-k = 4 → imprime 4
-k = 5 → imprime 5
-k = 6 → condição falsa → loop encerrado
-*/
-
-// _____________________________________________________________________________________________________________________
-
 // Break
 // Interrompe imediatamente a execução do loop
 
@@ -88,17 +85,8 @@ for (let k = 1; k <= 5; k++) {
     break;
   }
 
-  console.log("k: " + k);
+  console.log("k: " + k); // k: 1, k: 2, k: 3
 }
-
-/*
-Saída:
-
-k: 1
-k: 2
-
-Ao encontrar k = 3, o loop é encerrado.
-*/
 
 // _____________________________________________________________________________________________________________________
 
@@ -110,19 +98,8 @@ for (let k = 1; k <= 5; k++) {
     continue;
   }
 
-  console.log("k: " + k);
+  console.log("k: " + k); // k: 1, k: 2, k: 4, k: 5, o k: 3 foi ignorada
 }
-
-/*
-Saída:
-
-k: 1
-k: 2
-k: 4
-k: 5
-
-A iteração com k = 3 é ignorada.
-*/
 
 // _____________________________________________________________________________________________________________________
 
@@ -140,20 +117,9 @@ for (let a = 1; a <= 2; a++) {
 
   console.log("a: " + a);
 }
-
 /*
-b: 1
-b: 2
-b: 3
-a: 1
-
-b: 1
-b: 2
-b: 3
-a: 2
-
-O laço interno é executado completamente antes
-que o laço externo avance para a próxima repetição.
+// b: 1, b: 2, b: 3, a: 1, b: 1, b: 2, b: 3, a: 2
+O laço interno é executado completamente antes que o laço externo avance para a próxima repetição.
 */
 
 // _____________________________________________________________________________________________________________________
@@ -262,7 +228,6 @@ console.log(caramelo.name); // Caramelo
 console.log(caramelo["breed"]); // Desconhecido
 
 // Manipulação de objetos
-
 const person = {
   name: "Sabrina",
   age: 40,
@@ -273,37 +238,61 @@ const person = {
   },
 };
 
+// Formas de exibir valores de objetos
 console.log(person);
-
 console.log(person.name);
-
 console.log(person["age"]);
 
+// Alteração de valor de propriedade de objeto
 person.age = 50;
 
+// Inclusão de nova propriedade a objeto
 person.course = "JavaScript";
 
+// Obtenção de valor de uma listagem dentro de um objeto
 person.technologies[0];
 
+// Adição de valor em uma listagem dentro de um objeto
 person.technologies.push("Angular");
 
-Object.keys(person);
-Object.values(person);
+Object.keys(person); // ['name', 'age', 'technologies', 'talk']
+Object.values(person); // (4) ['Sabrina', 40, Array(3), ƒ]
 Object.entries(person);
-Object.assign(person, {});
-Object.freeze(person);
-Object.seal(person);
+/*
+(4) [Array(2), Array(2), Array(2), Array(2)]
+0: (2) ['name', 'Sabrina']
+1: (2) ['age', 40]
+2: (2) ['technologies', Array(3)]
+3: (2) ['talk', ƒ]
+*/
 
-person.hasOwnProperty("name");
+const personFreezing = { ...person };
+const personSealed = { ...person };
+
+// Object.freeze()
+// Impede adicionar, remover ou alterar propriedades
+Object.freeze(personFreezing);
+personFreezing.nationality = "Brasileira";
+personFreezing.name = "Sabrina B";
+console.log(personFreezing);
+
+// Object.seal()
+// Impede adicionar ou remover propriedades,
+// mas permite alterar valores existentes
+Object.seal(personSealed);
+personSealed.nationality = "Brasileira";
+personSealed.name = "Sabrina B";
+console.log(personSealed);
+
+// Verifica se um objeto tem uma propriedade deste nome
+person.hasOwnProperty("name"); // true
 
 person.talk("oi");
 
 // Função x Método
-
 function talk(text) {
   console.log(text);
 }
-
 talk("oi");
 
 person.talk("oi");
@@ -311,19 +300,15 @@ person.talk("oi");
 // _____________________________________________________________________________________________________________________
 
 // Verificação de tipo de arrays
-
 const numbers = [10, 20, 30];
 
 // Forma incorreta para diferenciar array de objeto
-
 console.log(typeof numbers); // "object"
 
 // Forma correta
-
 console.log(Array.isArray(numbers)); // true
 
 // Comparando array x objeto
-
 console.log(typeof numbers); // "object"
 console.log(typeof person); // "object"
 
@@ -364,25 +349,16 @@ for (let i = 0; i < students.length; i++) {
 // Utilizado para trabalhar com datas e horários
 
 const currentDate = new Date();
-
 console.log(currentDate);
-
 console.log(currentDate.getFullYear());
-
 console.log(currentDate.getMonth()); // 0 a 11
-
 console.log(currentDate.getDate());
-
 console.log(currentDate.getHours());
-
 console.log(currentDate.getMinutes());
-
 console.log(currentDate.toLocaleDateString("pt-BR"));
-
 console.log(currentDate.toLocaleTimeString("pt-BR"));
 
 // Exemplo de cadastro de usuário
-
 const registrationDate = new Date();
 
 console.log(
