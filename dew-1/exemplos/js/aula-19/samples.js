@@ -1,78 +1,195 @@
-// JAVASCRIPT E HTML
-// O JavaScript pode selecionar, ler e alterar elementos da página
-
-/*
-<h1 id="title">Curso de JavaScript</h1>
-<p class="description">Aprendendo DOM</p>
-<button id="btn">Clique aqui</button>
-*/
-
-// _____________________________________________________________________________________________________________________
-
+// ============================================================
 // SELEÇÃO DE ELEMENTOS
+// ============================================================
 
-// Seleção por id
-const title = document.getElementById("title");
-console.log(title);
+// getElementById: seleciona um elemento pelo ID
+console.log("\nUso de getElementById");
+const titulo = document.getElementById("titulo");
+console.log(titulo); // <h1 id="titulo">Curso de JavaScript</h1>
 
-// Seleção utilizando seletores CSS
-const titleByQuerySelector = document.querySelector("#title");
-console.log(titleByQuerySelector);
+// getElementsByClassName: retorna coleção de elementos com a mesma classe
+console.log("\nUso de getElementsByClassName");
+const itens = document.getElementsByClassName("item");
+console.log(itens); // HTMLCollection(2) [p.item, p.item]
 
-// Seleção por classe
-const description = document.querySelector(".description");
-console.log(description);
+// querySelector: retorna o primeiro elemento que combina com o seletor CSS
+console.log("\nUso de querySelector");
+const primeiroParagrafo = document.querySelector("p");
+console.log(primeiroParagrafo); // primeiro <p>
 
-// _____________________________________________________________________________________________________________________
+// querySelectorAll: retorna TODOS os elementos que combinam com o seletor CSS
+console.log("\nUso de querySelectorAll");
+const cards = document.querySelectorAll(".card");
+console.log(cards); // NodeList(2)
 
+// ============================================================
+// NAVEGAÇÃO NO DOM
+// ============================================================
+
+// seleciona primeiro item da lista
+const itemToNavegate = document.querySelector(".my-list li");
+
+// parentElement: acessa o elemento pai direto
+const ancestralUl = itemToNavegate.parentElement;
+console.log("Pai (ul):", ancestralUl);
+
+// closest(): sobe na hierarquia até encontrar o seletor informado
+const ancestralBody = itemToNavegate.closest("body");
+console.log("Ancestral (body):", ancestralBody);
+
+// ============================================================
+// DESCENDENTES
+// ============================================================
+
+const list = document.querySelector(".my-list");
+
+// todos os descendentes (li dentro da ul)
+const descendents = list.querySelectorAll("li");
+console.log("Descendentes:", descendents);
+
+// ============================================================
+// FILHOS DIRETOS
+// ============================================================
+
+// children: apenas filhos diretos
+const children = list.children;
+console.log("Filhos diretos:", children);
+
+// primeiro filho
+const firstChild = list.firstElementChild;
+console.log("Primeiro filho:", firstChild);
+
+// último filho
+const lastChild = list.lastElementChild;
+console.log("Último filho:", lastChild);
+
+// ============================================================
+// IRMÃOS (SIBLINGS)
+// ============================================================
+
+// elemento anterior
+const previousSibling = itemToNavegate.previousElementSibling;
+console.log("Anterior:", previousSibling);
+
+// próximo elemento
+const nextSibling = itemToNavegate.nextElementSibling;
+console.log("Próximo:", nextSibling);
+
+// ============================================================
 // MANIPULAÇÃO DE CONTEÚDO
-// Seleção e alteração do conteúdo de um elemento
-const newListElement = document.createElement("li");
+// ============================================================
 
-//TextContent altera o conteúdo de um elemento
-newListElement.textContent = "Sou um novo item";
-console.log(newListElement);
+const title = document.getElementById("titulo");
 
-// _____________________________________________________________________________________________________________________
+// textContent: altera apenas texto puro (ignora HTML)
+console.log(title.textContent); // Curso de JavaScript
+title.textContent = "Curso DOM JavaScript";
 
+// innerText: respeita estilo visual do CSS
+title.innerText = "Curso completo de front-end";
+
+// innerHTML: permite inserir HTML dentro do elemento
+title.innerHTML = "<strong>Curso completo de front-end</strong>";
+
+// ============================================================
+// VALUE (INPUTS / FORMULÁRIOS)
+// ============================================================
+
+const input = document.getElementById("nome");
+console.log(input.value); // Sabrina
+
+input.value = "Sabrina B.";
+
+const email = document.querySelector("#email");
+email.value = "teste@email.com";
+
+const mensagem = document.querySelector("#mensagem");
+console.log(mensagem.value);
+
+const linguagem = document.querySelector("#linguagem");
+console.log(linguagem.value);
+
+// ============================================================
 // ADIÇÃO DE ELEMENTOS
-// Seleção e adição de um novo elemento filho
-const list = document.querySelector("ul");
+// ============================================================
 
-// AppendChild adiciona um elemento filho no final da lista
-list.appendChild(newListElement);
-console.log(list);
+const newListItem = document.createElement("li");
+newListItem.textContent = "TypeScript";
 
-// Append adiciona um elemento filho no final da lista
-list.append("Fim da lista ");
-console.log(list);
+list.appendChild(newListItem); // adiciona no final
 
-const anotherNewListElement = document.createElement("li");
-anotherNewListElement.textContent = "Git";
+// Append também pode ser usado para adicionar múltiplos elementos
+list.append();
 
-// Prepend adiciona um elemento filho no início da lista
-list.prepend(anotherNewListElement);
-console.log(list);
+// insertBefore(): insere um elemento antes de outro elemento específico
+const myList = document.querySelector(".my-list");
+const myListNewItem = document.createElement("li");
+myListNewItem.textContent = "Angular";
 
-const otherNewListElement = document.createElement("li");
-otherNewListElement.textContent = "GitHub";
+// seleciona o segundo item da lista ("CSS")
+const referenceItem = myList.children[1];
 
-// InsertBefore adiciona um elemento filho antes de outro elemento filho
-list.insertBefore(otherNewListElement, anotherNewListElement);
-console.log(list);
+// insere "Angular" antes de "CSS"
+myList.insertBefore(myListNewItem, referenceItem);
+console.log("myList:", myList);
 
-// _____________________________________________________________________________________________________________________
+// Remove(): remove um elemento específico
+console.log("myList:", myList);
+const secondItem = document.querySelectorAll(".my-list li")[1];
+console.log("Item que será removido:", secondItem);
+secondItem.remove();
+console.log("myList:", myList);
 
+// RemoveChild(): remove um elemento filho específico
+console.log("myList:", myList);
+const myList = document.querySelector(".my-list");
+const firstItem = myList.firstElementChild;
+console.log("Lista antes da remoção:", myList);
+myList.removeChild(firstItem);
+console.log("myList:", myList);
+
+// ============================================================
 // REMOÇÃO DE ELEMENTOS
-const secondItemOfList = document.querySelectorAll("li")[1];
+// ============================================================
 
-// Remove remove um elemento da lista
-secondItemOfList.remove();
-console.log(list);
+// remove segundo item da classe .item
+const secondItem = document.querySelectorAll(".item")[1];
+secondItem.remove();
 
-// RemoveChild remove um elemento filho da lista
-const itemToRemove = list.children[0];
-list.removeChild(itemToRemove);
-console.log(list);
+// ============================================================
+// SUBSTITUIÇÃO DE ELEMENTOS
+// ============================================================
 
-// _____________________________________________________________________________________________________________________
+const newElement = document.createElement("li");
+newElement.textContent = "HTML Semântico";
+
+const itemAtual = list.children[0];
+list.replaceChild(newElement, itemAtual);
+
+// ============================================================
+// ESTILOS CSS
+// ============================================================
+
+const card = document.querySelector(".card");
+
+// Alterando estilos inline
+card.style.backgroundColor = "blue";
+card.style.color = "white";
+
+// Adicionando classe CSS
+card.classList.add("ativo");
+
+// Removendo classe
+card.classList.remove("card");
+
+// Alternando classe
+card.classList.toggle("destaque");
+
+// Verificando se possui uma classe
+console.log(card.classList.contains("ativo")); // true
+
+// Alterando todas as classes
+card.className = "card destaque";
+
+// Obtendo estilo calculado pelo navegador
+console.log(getComputedStyle(card).backgroundColor);
