@@ -12,38 +12,29 @@
 // SELEÇÃO DE ELEMENTOS
 
 // Seleção por id
-
 const title = document.getElementById("title");
-
 console.log(title);
 
 // Seleção utilizando seletores CSS
-
 const titleByQuerySelector = document.querySelector("#title");
-
 console.log(titleByQuerySelector);
 
 // Seleção por classe
-
 const description = document.querySelector(".description");
-
 console.log(description);
 
 // _____________________________________________________________________________________________________________________
 
 // MANIPULAÇÃO DE CONTEÚDO
-
 title.textContent = "JavaScript Moderno";
 
 // _____________________________________________________________________________________________________________________
 
 // EVENTOS
 // Permitem executar ações quando algo acontece na página
-
 const button = document.querySelector("#btn");
 
 // Evento de clique
-
 button.addEventListener("click", function () {
   console.log("Botão clicado");
 });
@@ -51,9 +42,7 @@ button.addEventListener("click", function () {
 // _____________________________________________________________________________________________________________________
 
 // EVENTO UTILIZANDO FUNÇÃO
-
 function showMessage() {
   console.log("Evento executado");
 }
-
 button.addEventListener("click", showMessage);

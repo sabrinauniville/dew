@@ -1,8 +1,8 @@
 // LAÇOS DE REPETIÇÃO (LOOPS)
 // Permitem repetir um bloco de código várias vezes
 
-// For
-// Utilizado quando a quantidade de repetições é conhecida
+// FOR: usado quando sabemos quantas vezes o bloco será executado
+// Estrutura: início → condição → incremento
 
 // For variação 1
 for (
@@ -22,11 +22,11 @@ for (let k = 1; k <= 5; k = k + 1) {
 for (let k = 5; k >= 1; k--) {
   console.log("k: " + k); // k: 5, k: 4, k: 3, k: 2, k: 1
 }
-_____________________________________________________________________________________________________________________;
 
-// While
-// Repete um bloco de código enquanto uma condição for verdadeira
-// Usado quando não sabemos quantas repetições serão necessárias
+//_____________________________________________________________________________________________________________________;
+
+// WHILE: executa enquanto a condição for verdadeira
+// ideal quando não sabemos quantas repetições serão necessárias
 
 let i = 1; // Variável de controle
 while (i <= 5) {
@@ -37,8 +37,7 @@ while (i <= 5) {
 
 // _____________________________________________________________________________________________________________________
 
-// Do While
-// Executa o bloco ao menos uma vez e continua repetindo enquanto a condição for verdadeira
+// DO WHILE: executa pelo menos uma vez antes de testar a condição
 
 let j = 1;
 
@@ -53,16 +52,10 @@ Loop infinito
 Ocorre quando a condição de parada nunca é atingida,
 geralmente porque a variável de controle não é atualizada corretamente.
 
-// Exemplo 1
-while (true) {
-  console.log("Loop infinito");
-}
-
-// Exemplo 2
-let i = 1;
-
+// Exemplo
 while (i <= 5) {
   console.log("i: " + i);
+  i++; // sem isso ocorre loop infinito
 }
 
 // Erro:
@@ -77,8 +70,7 @@ while (i <= 5) {
 
 // _____________________________________________________________________________________________________________________
 
-// Break
-// Interrompe imediatamente a execução do loop
+// break: encerra completamente o loop
 
 for (let k = 1; k <= 5; k++) {
   if (k === 3) {
@@ -90,8 +82,7 @@ for (let k = 1; k <= 5; k++) {
 
 // _____________________________________________________________________________________________________________________
 
-// Continue
-// Interrompe apenas a iteração atual e continua para a próxima
+// continue: pula a iteração atual e vai para a próxima
 
 for (let k = 1; k <= 5; k++) {
   if (k === 3) {
@@ -125,89 +116,99 @@ O laço interno é executado completamente antes que o laço externo avance para
 // _____________________________________________________________________________________________________________________
 
 // ARRAYS
-// Estrutura utilizada para armazenar múltiplos valores em uma única variável
+// arrays são estruturas indexadas (0,1,2...)
+// permitem armazenar múltiplos valores em sequência
 
 // Array de strings
-
 const technologies = ["HTML", "CSS", "JavaScript"];
-
 console.log(technologies);
 
+// length: retorna a quantidade total de elementos dentro de um array
 console.log(technologies.length); // 3
 
+// Acesso de valores do array através do índice (index)
 console.log(technologies[0]); // HTML
 console.log(technologies[1]); // CSS
 console.log(technologies[2]); // JavaScript
 
 // Array de números
-
 const numbersArray = [1, 2, 3, 4];
 
-// Métodos auxiliares para arrays
-
-console.log([1, 2, 3, 4].length); // 4
-
+// Acesso de valores do array através do índice (index)
 console.log([1, 2, 3, 4][0]); // 1
 console.log([1, 2, 3, 4][3]); // 4
 
-console.log([1, 2, 3, 4].push(5)); // 5 (novo tamanho do array)
-console.log([1, 2, 3, 4].pop()); // 4 (elemento removido)
-console.log([1, 2, 3, 4].shift()); // 1 (elemento removido)
-console.log([1, 2, 3, 4].unshift(0)); // 5 (novo tamanho do array)
+// Métodos auxiliares para arrays
+console.log([1, 2, 3, 4].length); // 4
 
+// push(): adiciona um elemento no final do array e retorna o novo tamanho do array
+console.log([1, 2, 3, 4].push(5)); // 5
+
+// pop(): remove o último elemento do array e o retorna
+console.log([1, 2, 3, 4].pop()); // 4
+
+// shift(): remove o primeiro elemento do array e o retorna
+console.log([1, 2, 3, 4].shift()); // 1
+
+// unshift(): adiciona um ou mais elementos no início do array e retorna o novo tamanho
+console.log([1, 2, 3, 4].unshift(0)); // 5
+
+// includes: verifica se existe o valor (true/false)
 console.log([1, 2, 3, 4].includes(2)); // true
+
+// indexOf: retorna posição do item no array
 console.log([1, 2, 3, 4].indexOf(3)); // 2
 
+// find(): retorna o primeiro elemento que satisfaz a condição informada
 console.log([1, 2, 3, 4].find((x) => x > 3)); // 4
 
+// filter: retorna apenas itens que passam na condição
 console.log([1, 2, 3, 4].filter((x) => x > 3)); // [4]
 
+// map: transforma cada item do array
 console.log([1, 2, 3, 4].map((x) => x * 2)); // [2, 4, 6, 8]
 
+// forEach(): executa uma função para cada elemento do array sem retornar novo array
 [1, 2, 3, 4].forEach((x) => console.log(x));
 
+// some: retorna true se pelo menos 1 item atender condição
 console.log([1, 2, 3, 4].some((x) => x > 2)); // true
 
+// every: retorna true se TODOS os itens atenderem a condição
 console.log([1, 2, 3, 4].every((x) => x > 0)); // true
 
+// join(): transforma todos os elementos do array em uma string separada por um delimitador
 console.log([1, 2, 3, 4].join(", ")); // "1, 2, 3, 4"
 
+// slice(): retorna uma cópia parcial do array sem alterar o original
 console.log([1, 2, 3, 4].slice(1)); // [2, 3, 4]
 
+// splice remove elementos e altera o array original
 console.log([1, 2, 3, 4].splice(1, 1)); // [2]
 
 // _____________________________________________________________________________________________________________________
 
 // String x Array
-
 let languageNameString = "JavaScript";
-
-const technologiesArray = ["HTML", "CSS", "JavaScript"];
-
 console.log(languageNameString[0]); // J
 console.log(languageNameString.length); // 10
 
+// Strings são imutáveis
+languageNameString[0] = "T";
+console.log(languageNameString); // JavaScript
+
+const technologiesArray = ["HTML", "CSS", "JavaScript"];
 console.log(technologiesArray[0]); // HTML
 console.log(technologiesArray.length); // 3
 
-// Strings são imutáveis
-
-languageNameString[0] = "T";
-
-console.log(languageNameString); // JavaScript
-
 // Arrays são mutáveis
-
 technologiesArray[0] = "TypeScript";
-
-console.log(technologiesArray);
-
-// ["TypeScript", "CSS", "JavaScript"]
+console.log(technologiesArray); // ["TypeScript", "CSS", "JavaScript"]
 
 // _____________________________________________________________________________________________________________________
 
-// OBJETOS
-// Estrutura utilizada para representar uma entidade através de propriedades
+// objetos representam entidades do mundo real
+// são formados por chave (propriedade) e valo
 
 const labrador = {
   name: "Rex",
@@ -269,16 +270,13 @@ Object.entries(person);
 const personFreezing = { ...person };
 const personSealed = { ...person };
 
-// Object.freeze()
-// Impede adicionar, remover ou alterar propriedades
+// freeze: bloqueia totalmente o objeto (não altera nada)
 Object.freeze(personFreezing);
 personFreezing.nationality = "Brasileira";
 personFreezing.name = "Sabrina B";
 console.log(personFreezing);
 
-// Object.seal()
-// Impede adicionar ou remover propriedades,
-// mas permite alterar valores existentes
+// seal: permite alterar valores, mas não adicionar/remover propriedades
 Object.seal(personSealed);
 personSealed.nationality = "Brasileira";
 personSealed.name = "Sabrina B";
@@ -348,22 +346,51 @@ for (let i = 0; i < students.length; i++) {
 // DATE
 // Utilizado para trabalhar com datas e horários
 
-const currentDate = new Date();
-console.log(currentDate);
-console.log(currentDate.getFullYear());
-console.log(currentDate.getMonth()); // 0 a 11
-console.log(currentDate.getDate());
-console.log(currentDate.getHours());
-console.log(currentDate.getMinutes());
-console.log(currentDate.toLocaleDateString("pt-BR"));
-console.log(currentDate.toLocaleTimeString("pt-BR"));
+// Geração de objetos data
+const currentDate = new Date(); // Data e hora atual
+console.log("currentDate:", currentDate);
 
-// Exemplo de cadastro de usuário
-const registrationDate = new Date();
+const someDate = new Date("2026-06-23"); // Data base
+console.log("someDate:", someDate); // someDate: Mon Jun 22 2026 21:00:00 GMT-0300 (Horário Padrão de Brasília)
 
-console.log(
-  "Usuário cadastrado em:",
-  registrationDate.toLocaleDateString("pt-BR"),
-);
+// Métodos de apoio para datas
+console.log(someDate.getFullYear()); // 2026
+console.log(someDate.getMonth()); // 5 (começa a contar em 0)
+console.log(someDate.getDate()); // 22
+console.log(someDate.getHours()); // 21
+console.log(someDate.getMinutes()); // 0
+console.log(someDate.toLocaleDateString("pt-BR")); // 22/06/2026
+console.log(someDate.toLocaleTimeString("pt-BR")); // 21:00:00
 
-console.log("Às:", registrationDate.toLocaleTimeString("pt-BR"));
+// Operações com datas
+// Date trabalha com timestamps (milissegundos desde 1970)
+// todas as operações são matemáticas em cima desse valor
+
+// Dica: Sempre que for fazer operações com datas, clone o objeto Date antes de alterar, para não modificar o original.
+
+// adicionar 7 dias
+const add7Days = new Date(someDate);
+add7Days.setDate(add7Days.getDate() + 7);
+console.log("+7 dias:", add7Days.toLocaleDateString("pt-BR")); // +7 dias: 29/06/2026
+
+// diminuir 1 mes
+const minus1Month = new Date(someDate);
+minus1Month.setMonth(minus1Month.getMonth() - 1);
+console.log("-1 mês:", minus1Month.toLocaleDateString("pt-BR")); // -1 mês: 22/05/2026
+
+// adicionar 3 horas
+const add3Hours = new Date(someDate);
+add3Hours.setHours(add3Hours.getHours() + 3);
+console.log("+3 horas:", add3Hours.toLocaleTimeString("pt-BR")); // +3 horas: 00:00:00
+
+// adicionar 30 minutos
+const add30Min = new Date(someDate);
+add30Min.setMinutes(add30Min.getMinutes() + 30);
+console.log("+30 minutos:", add30Min.toLocaleTimeString("pt-BR")); // +30 minutos: 21:30:00
+
+// adicionar 30 minutos
+const add50Sec = new Date(someDate);
+add50Sec.setSeconds(add50Sec.getSeconds() + 50);
+console.log("+50 segundos:", add50Sec.toLocaleTimeString("pt-BR")); // +50 segundos: 21:00:50
+
+// _____________________________________________________________________________________________________________________

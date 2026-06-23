@@ -23,8 +23,13 @@
     const totalDeFaltas = Number(
       prompt("Digite o total de faltas do acadêmico no semestre: "),
     );
+
+    // Calcula a porcentagem de frequência do acadêmico.
+    // 1. Subtrai as faltas do total de aulas para descobrir quantas aulas foram frequentadas.
+    // 2. Multiplica o resultado por 100.
+    // 3. Divide pelo total de aulas para obter a porcentagem de frequência.
     const porcentagemFrequênciaTotal =
-      ((totalAulas - totalDeFaltas) * 100) / totalAulas; // porcentagem da frequência do acadêmico
+      ((totalAulas - totalDeFaltas) * 100) / totalAulas;
 
     // Verifica se a porcentagem de frequência do acadêmico é maior ou igual a porcentagem minima de frequencia para aprovação
     if (
