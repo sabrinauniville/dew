@@ -142,7 +142,6 @@ console.log("myList:", myList);
 
 // RemoveChild(): remove um elemento filho específico
 console.log("myList:", myList);
-const myList = document.querySelector(".my-list");
 const firstItem = myList.firstElementChild;
 console.log("Lista antes da remoção:", myList);
 myList.removeChild(firstItem);
@@ -153,7 +152,6 @@ console.log("myList:", myList);
 // ============================================================
 
 // remove segundo item da classe .item
-const secondItem = document.querySelectorAll(".item")[1];
 secondItem.remove();
 
 // ============================================================

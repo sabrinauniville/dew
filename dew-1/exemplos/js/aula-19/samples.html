@@ -1,84 +1,86 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Testando JavaScript</title>
-    <script src="./samples.js" defer></script>
-    <!-- O uso do atributo defer na tag script é essencial para que a seleção dos elementos não retorne null -->
-  </head>
 
-  <body>
-    <!-- Seletor de ID: #titulo -->
-    <h1 id="titulo">Curso de JavaScript</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testando JavaScript</title>
+  <script src="./samples.js" defer></script>
+  <!-- O uso do atributo defer na tag script é essencial para que a seleção dos elementos não retorne null -->
+</head>
 
-    <!-- Seletor de elemento (tag): p -->
-    <p>Parágrafo introdutório.</p>
+<body>
+  <!-- Seletor de ID: #titulo -->
+  <h1 id="titulo">Curso de JavaScript</h1>
 
-    <!-- Seletor de classe: .item -->
-    <p class="item">Primeiro item.</p>
-    <p class="item">Segundo item.</p>
+  <!-- Seletor de elemento (tag): p -->
+  <p>Parágrafo introdutório.</p>
 
-    <!-- Seletor de atributo: [data-tipo] -->
-    <div class="card" data-tipo="produto">Card 1</div>
+  <!-- Seletor de classe: .item -->
+  <p class="item">Primeiro item.</p>
+  <p class="item">Segundo item.</p>
 
-    <div class="card" data-tipo="produto">Card 2</div>
+  <!-- Seletor de atributo: [data-tipo] -->
+  <div class="card" data-tipo="produto">Card 1</div>
 
-    <!-- Seletor descendente: section p -->
-    <section class="conteudo">
-      <p>Parágrafo dentro da section.</p>
-    </section>
+  <div class="card" data-tipo="produto">Card 2</div>
 
-    <!-- Seletor filho direto: ul > li -->
-    <ul class="my-list">
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-    </ul>
+  <!-- Seletor descendente: section p -->
+  <section class="conteudo">
+    <p>Parágrafo dentro da section.</p>
+  </section>
 
-    <!-- Exemplo para pseudoclasse: p:first-of-type -->
-    <section>
-      <p>Primeiro parágrafo da seção.</p>
-      <p>Segundo parágrafo da seção.</p>
-    </section>
+  <!-- Seletor filho direto: ul > li -->
+  <ul class="my-list">
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ul>
 
-    <!-- Exemplo para value -->
-    <section class="form">
-      <h2>Teste da propriedade value</h2>
+  <!-- Exemplo para pseudoclasse: p:first-of-type -->
+  <section>
+    <p>Primeiro parágrafo da seção.</p>
+    <p>Segundo parágrafo da seção.</p>
+  </section>
 
-      <!-- Input de texto -->
-      <label>
-        Nome:
-        <input type="text" id="nome" value="Sabrina" />
-      </label>
+  <!-- Exemplo para value -->
+  <section class="form">
+    <h2>Teste da propriedade value</h2>
 
-      <br /><br />
+    <!-- Input de texto -->
+    <label>
+      Nome:
+      <input type="text" id="nome" value="Sabrina" />
+    </label>
 
-      <!-- Input de email -->
-      <label>
-        Email:
-        <input type="email" id="email" placeholder="Digite seu email" />
-      </label>
+    <br /><br />
 
-      <br /><br />
+    <!-- Input de email -->
+    <label>
+      Email:
+      <input type="email" id="email" placeholder="Digite seu email" />
+    </label>
 
-      <!-- Textarea -->
-      <label>
-        Mensagem:
-        <textarea id="mensagem">Texto inicial da mensagem</textarea>
-      </label>
+    <br /><br />
 
-      <br /><br />
+    <!-- Textarea -->
+    <label>
+      Mensagem:
+      <textarea id="mensagem">Texto inicial da mensagem</textarea>
+    </label>
 
-      <!-- Select -->
-      <label>
-        Linguagem favorita:
-        <select id="linguagem">
-          <option value="js">JavaScript</option>
-          <option value="ts">TypeScript</option>
-          <option value="py">Python</option>
-        </select>
-      </label>
-    </section>
-  </body>
+    <br /><br />
+
+    <!-- Select -->
+    <label>
+      Linguagem favorita:
+      <select id="linguagem">
+        <option value="js">JavaScript</option>
+        <option value="ts">TypeScript</option>
+        <option value="py">Python</option>
+      </select>
+    </label>
+  </section>
+</body>
+
 </html>
