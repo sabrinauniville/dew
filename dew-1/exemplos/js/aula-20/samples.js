@@ -1,101 +1,177 @@
-// Eventos de mouse
+// ===============================
+// EVENTOS DE MOUSE
+// ===============================
+
 const btnMouse = document.querySelector("#btnMouse");
 const areaMouse = document.querySelector("#areaMouse");
 
-btnMouse.addEventListener("click", () => {
+btnMouse.addEventListener("click", (event) => {
   alert("Botão clicado!");
+
+  // Analisando o object event
+  console.log("Objeto event:", event);
+  console.log("Tipo do evento:", event.type);
+  console.log("Elemento clicado:", event.target);
+  console.log("Posição X do clique:", event.clientX);
+  console.log("Posição Y do clique:", event.clientY);
 });
 
-areaMouse.addEventListener("mouseover", () => {
+areaMouse.addEventListener("mouseover", (event) => {
   areaMouse.textContent = "Mouse entrou!";
+  console.log("Tipo do evento:", event.type);
 });
 
-areaMouse.addEventListener("mouseout", () => {
+areaMouse.addEventListener("mouseout", (event) => {
   areaMouse.textContent = "Mouse saiu!";
+  console.log("Tipo do evento:", event.type);
 });
 
-// Eventos de teclado
-const campoTeclado = document.querySelector("#campoTeclado");
+// ===============================
+// FORMULÁRIO
+// ===============================
 
-campoTeclado.addEventListener("keydown", (event) => {
+const form = document.querySelector("#formCadastro");
+const nome = document.querySelector("#nome");
+const email = document.querySelector("#email");
+const comentario = document.querySelector("#comentario");
+const linguagem = document.querySelector("#linguagem");
+
+// focus
+nome.addEventListener("focus", (event) => {
+  console.log("Campo nome recebeu foco");
+  console.log("evento:", event);
+});
+
+// blur
+nome.addEventListener("blur", () => {
+  console.log("Campo nome perdeu foco");
+});
+
+// change
+linguagem.addEventListener("change", () => {
+  console.log("Linguagem escolhida:", linguagem.value);
+});
+
+// input
+comentario.addEventListener("input", () => {
+  console.log("Usuário está digitando...");
+});
+
+// ===============================
+// EVENTOS DE TECLADO
+// ===============================
+
+comentario.addEventListener("keydown", (event) => {
+  console.log("evento:", event);
   console.log("Tecla pressionada:", event.key);
 });
 
-campoTeclado.addEventListener("keyup", (event) => {
+comentario.addEventListener("keyup", (event) => {
   console.log("Tecla liberada:", event.key);
 });
 
-// Eventos de formulário
-const form = document.querySelector("#formCadastro");
-const nome = document.querySelector("#nome");
+// ===============================
+// CLIPBOARD
+// ===============================
 
-nome.addEventListener("focus", () => {
-  console.log("Campo recebeu foco");
+comentario.addEventListener("copy", (event) => {
+  console.log("evento:", event);
+  console.log("Texto copiado");
 });
 
-nome.addEventListener("blur", () => {
-  console.log("Campo perdeu foco");
+comentario.addEventListener("cut", (event) => {
+  console.log("evento:", event);
+  console.log("Texto recortado");
 });
 
-nome.addEventListener("change", () => {
-  console.log("Valor alterado");
+comentario.addEventListener("paste", (event) => {
+  console.log("evento:", event);
+  console.log("Texto colado");
 });
 
-form.addEventListener("submit", () => {
+// ===============================
+// MENSAGENS PERSONALIZADAS
+// ===============================
+
+email.addEventListener("invalid", () => {
+  email.setCustomValidity("Por favor, informe um endereço de e-mail válido.");
+});
+
+email.addEventListener("input", () => {
+  email.setCustomValidity("");
+});
+
+// ===============================
+// CANCELAMENTO DO ENVIO
+// ===============================
+
+form.addEventListener("submit", (event) => {
+  // impede envio real do formulário
+  event.preventDefault();
+
   console.log("Formulário enviado");
+
+  alert("Formulário validado e envio cancelado!");
 });
 
-// Eventos de janela
+// ===============================
+// CANCELAMENTO DE LINK
+// ===============================
+
+const linkGoogle = document.querySelector("#linkGoogle");
+
+linkGoogle.addEventListener("click", (event) => {
+  console.log("evento:", event);
+  event.preventDefault();
+  console.log("Navegação cancelada!");
+  alert("Navegação cancelada!");
+});
+
+// ===============================
+// EVENTOS DE JANELA
+// ===============================
+
 window.addEventListener("load", () => {
   console.log("Página carregada");
 });
 
 window.addEventListener("resize", () => {
-  console.log("Largura:", window.innerWidth);
+  console.log(`Nova largura da janela: ${window.innerWidth}px`);
 });
 
 window.addEventListener("scroll", () => {
-  console.log("Rolando a página...");
+  console.log("Usuário está rolando a página");
 });
 
-// Eventos de janela
-const textoClipboard = document.querySelector("#textoClipboard");
-
-textoClipboard.addEventListener("copy", () => {
-  console.log("Texto copiado");
-});
-
-textoClipboard.addEventListener("cut", () => {
-  console.log("Texto recortado");
-});
-
-textoClipboard.addEventListener("paste", () => {
-  console.log("Texto colado");
-});
-
-// Cancelamento de comportameto padrão
-form.addEventListener("submit", (event) => {
+/* Formulários */
+const formBusca = document.querySelector("#formBusca");
+formBusca.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  alert("Envio cancelado para validação.");
-});
+  // Exemplo de obteção de dados pelo .value
+  const produto = document.querySelector("#produto").value;
+  const categoria = document.querySelector("#categoria").value;
 
-// com links
-const link = document.querySelector("#linkGoogle");
+  console.log("Formulário de busca - evento:", event);
+  console.log("Value Produto:", produto);
+  console.log("Value Categoria:", categoria);
 
-link.addEventListener("click", (event) => {
-  event.preventDefault();
+  // Exemplo de obtenção de dados pelo formData
+  const formBuscaDados = new FormData(formBusca);
+  const formBuscaDadosProduto = formBuscaDados.get("produto");
+  const formBuscaDadosCategoria = formBuscaDados.get("categoria");
 
-  alert("Navegação cancelada");
-});
+  console.log("FormData produto:", formBuscaDadosProduto);
+  console.log("FormData categoria:", formBuscaDadosCategoria);
 
-// Mensagem de erros personalizadas
-const email = document.querySelector("#email");
+  // exibir todos os valores deste formulário
+  for (let [key, value] of formBuscaDados.entries()) {
+    console.log("chave: " + key + ", valor: " + value);
+  }
 
-email.addEventListener("invalid", () => {
-  email.setCustomValidity("Informe um endereço de e-mail válido.");
-});
-
-email.addEventListener("input", () => {
-  email.setCustomValidity("");
+  // exemplo de obtenção de dados pelo urlSearchParams
+  // o exemplo baixo só funcionaria caso tivessemos uma url nessa estrutura: http://localhost:5500/index.html?produto=notebook&categoria=informatica
+  const params = new URLSearchParams(window.location.search);
+  console.log("URLSearchParams produto:", params.get("produto"));
+  console.log("URLSearchParams categoria:", params.get("categoria"));
 });
