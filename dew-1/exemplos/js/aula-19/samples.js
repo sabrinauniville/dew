@@ -5,7 +5,7 @@
 // getElementById: seleciona um elemento pelo ID
 console.log("\nUso de getElementById");
 const titulo = document.getElementById("titulo");
-console.log(titulo); // <h1 id="titulo">Curso de JavaScript</h1>
+console.log(titulo); // <h1 id="titulo">JavaScript</h1>
 
 // getElementsByClassName: retorna coleção de elementos com a mesma classe
 console.log("\nUso de getElementsByClassName");
@@ -83,15 +83,15 @@ const title = document.getElementById("titulo");
 console.log("Title element:", title);
 
 // textContent: altera apenas texto puro (ignora HTML)
-title.textContent = "Curso DOM JavaScript";
-console.log("textContent:", title.textContent); // Curso DOM JavaScript
+title.textContent = "Aprendendo DOM JavaScript";
+console.log("textContent:", title.textContent); // Aprendendo DOM JavaScript
 
 // innerText: obtém ou altera apenas o texto visível ao usuário
-title.innerText = "Curso completo de front-end";
-console.log("innerText:", title.innerText); // Curso completo de front-end
+title.innerText = "Aprendendo front-end";
+console.log("innerText:", title.innerText); // Aprendendo front-end
 
 // innerHTML: permite inserir HTML dentro do elemento
-title.innerHTML = "<strong>Curso completo de front-end</strong>";
+title.innerHTML = "<h1><strong>Aprendendo front-end</strong> </h1>";
 console.log("innerHTML:", title.innerHTML);
 
 // ============================================================
