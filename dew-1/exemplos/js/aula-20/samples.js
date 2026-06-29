@@ -102,6 +102,48 @@ email.addEventListener("input", () => {
 });
 
 // ===============================
+// utilização do aria invalid para acessibilidade
+email.addEventListener("invalid", () => {
+  email.setAttribute("aria-invalid", "true");
+});
+
+email.addEventListener("input", () => {
+  email.removeAttribute("aria-invalid");
+});
+
+// ===============================
+
+nome.addEventListener("invalid", () => {
+  if (nome.validity.valueMissing) {
+    nome.setCustomValidity("O nome é obrigatório.");
+  } else if (nome.validity.tooShort) {
+    nome.setCustomValidity("O nome deve possuir pelo menos 3 caracteres.");
+  } else if (nome.validity.patternMismatch) {
+    nome.setCustomValidity("Informe apenas letras e espaços.");
+  }
+});
+
+nome.addEventListener("input", () => {
+  nome.setCustomValidity("");
+});
+
+const telefone = document.querySelector("#telefone");
+
+telefone.addEventListener("invalid", () => {
+  if (telefone.validity.valueMissing) {
+    telefone.setCustomValidity("O telefone é obrigatório.");
+  } else if (telefone.validity.patternMismatch) {
+    telefone.setCustomValidity(
+      "Informe um telefone válido. Ex.: 47999999999 ou +5547999999999.",
+    );
+  }
+});
+
+telefone.addEventListener("input", () => {
+  telefone.setCustomValidity("");
+});
+
+// ===============================
 // CANCELAMENTO DO ENVIO
 // ===============================
 

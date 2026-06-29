@@ -11,223 +11,187 @@
 </head>
 
 <body>
+  <section class="intro">
+    <h1 id="titulo">Curso de JavaScript</h1>
 
-  <h1 id="titulo">Curso de JavaScript</h1>
-
-  <p>Parágrafo introdutório.</p>
-
-  <p class="item">Primeiro item.</p>
-  <p class="item">Segundo item.</p>
-
-  <div class="card" data-tipo="produto">Card 1</div>
-  <div class="card" data-tipo="produto">Card 2</div>
-
-  <section class="conteudo">
-    <p>Parágrafo dentro da section.</p>
+    <p>Parágrafo introdutório.</p>
   </section>
 
-  <ul class="my-list">
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-  </ul>
+  <section class="content">
+    <p>Parágrafo dentro da section.</p>
+    <p class="item">Primeiro item.</p>
+    <p class="item">Segundo item.</p>
 
-  <section>
+    <div class="card" data-tipo="produto">Card 1</div>
+    <div class="card" data-tipo="produto">Card 2</div>
+
+    <ul class="my-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </section>
+
+  <section class="paragrafos">
     <p>Primeiro parágrafo da seção.</p>
     <p>Segundo parágrafo da seção.</p>
+    <hr>
   </section>
 
-  <hr>
-
-  <h2>Eventos de Mouse</h2>
-
-  <button id="btnMouse">
-    Clique aqui
-  </button>
-
-  <br><br>
-
-  <div id="areaMouse"
-    style="width: 300px; height: 100px; border: 1px solid black; padding: 10px;">
-    Passe o mouse aqui
-  </div>
-
-  <hr>
-
-  <!-- Formulário post -->
-  <h2>Formulário Completo</h2>
-
-  <form
-    id="formCadastro"
-    action="/cadastro"
-    method="post"
-    autocomplete="off">
-
-    <!-- Nome -->
-    <label for="nome">
-      Nome completo:
-    </label>
-
-    <input
-      type="text"
-      id="nome"
-      name="nome"
-      required
-      minlength="3"
-      maxlength="100"
-      pattern="[A-Za-zÀ-ÿ\s]{3,}"
-      aria-required="true"
-      placeholder="Digite seu nome completo">
-
-    <br><br>
-
-    <!-- Email -->
-    <label for="email">
-      E-mail:
-    </label>
-
-    <input
-      type="email"
-      id="email"
-      name="email"
-      required
-      placeholder="Digite seu e-mail">
-
-    <br><br>
-
-    <!-- Telefone -->
-    <label for="telefone">
-      Telefone:
-    </label>
-
-    <input
-      type="tel"
-      id="telefone"
-      name="telefone"
-      pattern="[0-9]{11}"
-      placeholder="47999999999"
-      required>
-
-    <br><br>
-
-    <!-- Idade -->
-    <label for="idade">
-      Idade:
-    </label>
-
-    <input
-      type="number"
-      id="idade"
-      name="idade"
-      min="18"
-      max="100"
-      required>
-
-    <br><br>
-
-    <!-- Senha -->
-    <label for="senha">
-      Senha:
-    </label>
-
-    <input
-      type="password"
-      id="senha"
-      name="senha"
-      minlength="8"
-      required>
-
-    <br><br>
-
-    <!-- Linguagem favorita -->
-    <label for="linguagem">
-      Linguagem favorita:
-    </label>
-
-    <select id="linguagem" name="linguagem">
-
-      <option value="">
-        Selecione
-      </option>
-
-      <option value="js">
-        JavaScript
-      </option>
-
-      <option value="ts">
-        TypeScript
-      </option>
-
-      <option value="py">
-        Python
-      </option>
-
-    </select>
-
-    <br><br>
-
-    <!-- Eventos de teclado + Clipboard -->
-    <label for="comentario">
-      Comentário:
-    </label>
-
-    <textarea
-      id="comentario"
-      name="comentario"
-      rows="5"
-      cols="40"
-      aria-describedby="ajudaComentario"
-      placeholder="Digite um comentário">
-    </textarea>
-
-    <br>
-
-    <small id="ajudaComentario">
-      Digite no máximo 200 caracteres.
-    </small>
-
-    <br><br>
-
-    <button type="submit">
-      Enviar Cadastro
+  <section class="mouse-events">
+    <h2>Eventos de Mouse</h2>
+    <button id="btnMouse">
+      Clique aqui
     </button>
 
-  </form>
+    <br><br>
 
-  <!-- Formulário get -->
-   <h2>Buscar Produtos</h2>
+    <div id="areaMouse" style="width: 300px; height: 100px; border: 1px solid black; padding: 10px;">
+      Passe o mouse aqui
+    </div>
+    <hr>
+  </section>
 
-<form id="formBusca" action="/buscar-produtos" method="get">
+  <section class="form-post"> <!-- Formulário post -->
+    <h2>Envio de dados</h2>
 
-  <label for="produto">Produto:</label>
-  <input
-    type="text"
-    id="produto"
-    name="produto" required>
+    <form id="formCadastro" action="/cadastro" method="post" autocomplete="off">
 
-  <label for="categoria">Categoria:</label>
-  <select id="categoria" name="categoria" required>
-    <option value="">Todas</option>
-    <option value="informatica">Informática</option>
-    <option value="livros">Livros</option>
-  </select>
+      <!-- Nome -->
+      <label for="nome">
+        Nome completo:
+      </label>
 
-  <button type="submit">
-    Buscar
-  </button>
+      <input id="nome" name="nome" type="text" required minlength="3" maxlength="100" pattern="[A-Za-zÀ-ÿ\s]{3,}"
+        aria-required="true" placeholder="Digite seu nome completo">
 
-</form>
+      <br><br>
 
-  <hr>
+      <!-- Email -->
+      <label for="email">
+        E-mail:
+      </label>
 
-  <h2>Cancelamento do comportamento padrão</h2>
+      <input type="email" id="email" name="email" required placeholder="Digite seu e-mail">
 
-  <a href="https://google.com" id="linkGoogle">
-    Acessar Google
-  </a>
+      <br><br>
 
-  <!-- Espaço para gerar rolagem e testar scroll -->
-  <div style="height: 1000px;"></div>
+      <!-- Telefone -->
+      <label for="telefone">
+        Telefone:
+      </label>
+
+      <input id="telefone" name="telefone" type="tel" required placeholder="47999999999" pattern="^(\+55)?[0-9]{11}$">
+
+      <!-- REGEX
+      Valores válidos nesse campo
+      47999999999
+      +5547999999999
+
+      Valores inválidos:
+      9999999999 (faltou o DDD)
+      5547999999999 (faltou o +)
+      47 999999999 (contém espaços)
+      4799999-9999 (contém hífen)
+      -->
+
+      <br><br>
+
+      <!-- Idade -->
+      <label for="idade">
+        Idade:
+      </label>
+
+      <input type="number" id="idade" name="idade" min="18" max="100" required>
+
+      <br><br>
+
+      <!-- Senha -->
+      <label for="senha">
+        Senha:
+      </label>
+
+      <input type="password" id="senha" name="senha" minlength="8" required aria-describedby="ajudaSenha">
+
+      <small id="ajudaSenha">
+        A senha deve possuir pelo menos 8 caracteres.
+      </small>
+
+      <br><br>
+
+      <!-- Linguagem favorita -->
+      <fieldset>
+        <legend>Escolha sua linguagem favorita</legend>
+
+        <input type="radio" id="js" name="linguagemFav" value="js">
+        <label for="js">JavaScript</label>
+
+        <input type="radio" id="ts" name="linguagemFav" value="ts">
+        <label for="ts">TypeScript</label>
+
+        <input type="radio" id="py" name="linguagemFav" value="py">
+        <label for="py">Python</label>
+      </fieldset>
+
+      <br><br>
+
+      <!-- Eventos de teclado + Clipboard -->
+      <label for="comentario">
+        Comentário:
+      </label>
+
+      <textarea id="comentario" name="comentario" rows="5" cols="40" aria-describedby="ajudaComentario"
+        placeholder="Digite um comentário">
+    </textarea>
+
+      <br>
+
+      <small id="ajudaComentario">
+        Digite no máximo 200 caracteres.
+      </small>
+
+      <br><br>
+
+      <button type="submit">
+        Enviar Cadastro
+      </button>
+
+    </form>
+  </section>
+
+  <section class="form-get"> <!-- Formulário get -->
+    <h2>Recebimento de dados</h2>
+
+    <form id="formBusca" action="/buscar-produtos" method="get">
+
+      <label for="produto">Produto:</label>
+      <input type="text" id="produto" name="produto" required>
+
+      <label for="categoria">Categoria:</label>
+      <select id="categoria" name="categoria" required>
+        <option value="">Todas</option>
+        <option value="informatica">Informática</option>
+        <option value="livros">Livros</option>
+      </select>
+
+      <button type="submit">
+        Buscar
+      </button>
+    </form>
+  </section>
+
+  <section class="prevent-default">
+    <hr>
+    <h2>Cancelamento do comportamento padrão</h2>
+    <a href="https://google.com" id="linkGoogle">
+      Acessar Google
+    </a>
+  </section>
+
+  <section class="scroll-events">
+    <!-- Espaço para gerar rolagem e testar scroll -->
+    <div style="height: 1000px;"></div>
+  </section>
 
 </body>
 
