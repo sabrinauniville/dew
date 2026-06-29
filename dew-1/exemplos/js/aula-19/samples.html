@@ -2,48 +2,57 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Testando JavaScript</title>
+
   <script src="./samples.js" defer></script>
-  <!-- O uso do atributo defer na tag script é essencial para que a seleção dos elementos não retorne null -->
+  <!-- O atributo defer garante que o HTML seja carregado antes do JavaScript -->
 </head>
 
 <body>
-  <!-- Seletor de ID: #titulo -->
-  <h1 id="titulo">Curso de JavaScript</h1>
+  <section class="intro">
+    <h1 id="titulo">Curso de JavaScript</h1>
 
-  <!-- Seletor de elemento (tag): p -->
-  <p>Parágrafo introdutório.</p>
-
-  <!-- Seletor de classe: .item -->
-  <p class="item">Primeiro item.</p>
-  <p class="item">Segundo item.</p>
-
-  <!-- Seletor de atributo: [data-tipo] -->
-  <div class="card" data-tipo="produto">Card 1</div>
-
-  <div class="card" data-tipo="produto">Card 2</div>
-
-  <!-- Seletor descendente: section p -->
-  <section class="conteudo">
-    <p>Parágrafo dentro da section.</p>
+    <p>Parágrafo introdutório.</p>
   </section>
 
-  <!-- Seletor filho direto: ul > li -->
-  <ul class="my-list">
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-  </ul>
+  <section class="content">
+    <p>Parágrafo dentro da section.</p>
+    <p class="item">Primeiro item.</p>
+    <p class="item">Segundo item.</p>
 
-  <!-- Exemplo para pseudoclasse: p:first-of-type -->
-  <section>
+    <div class="card" data-tipo="produto">Card 1</div>
+    <div class="card" data-tipo="produto">Card 2</div>
+
+    <ul class="my-list">
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </section>
+
+  <section class="paragrafos">
     <p>Primeiro parágrafo da seção.</p>
     <p>Segundo parágrafo da seção.</p>
+    <hr>
   </section>
 
-  <!-- Exemplo para value -->
+  <section class="mouse-events">
+    <h2>Eventos de Mouse</h2>
+    <button id="btnMouse">
+      Clique aqui
+    </button>
+
+    <br><br>
+
+    <div id="areaMouse" style="width: 300px; height: 100px; border: 1px solid black; padding: 10px;">
+      Passe o mouse aqui
+    </div>
+    <hr>
+  </section>
+
+    <!-- Exemplo para value -->
   <section class="form">
     <h2>Teste da propriedade value</h2>
 
@@ -81,6 +90,23 @@
       </select>
     </label>
   </section>
+
+  <section class="prevent-default">
+    <hr>
+    <h2>Cancelamento do comportamento padrão</h2>
+    <a href="https://google.com" id="linkGoogle">
+      Acessar Google
+    </a>
+  </section>
+
+  <section class="scroll-events">
+    <!-- Espaço para gerar rolagem e testar scroll -->
+    <div style="height: 1000px;"></div>
+  </section>
+
 </body>
 
 </html>
+
+</body>
+

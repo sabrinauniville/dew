@@ -27,14 +27,14 @@ console.log(cards); // NodeList(2)
 // ============================================================
 
 // seleciona primeiro item da lista
-const itemToNavegate = document.querySelector(".my-list li");
+const itemToNavigate = document.querySelector(".my-list li");
 
 // parentElement: acessa o elemento pai direto
-const ancestralUl = itemToNavegate.parentElement;
+const ancestralUl = itemToNavigate.parentElement;
 console.log("Pai (ul):", ancestralUl);
 
 // closest(): sobe na hierarquia até encontrar o seletor informado
-const ancestralBody = itemToNavegate.closest("body");
+const ancestralBody = itemToNavigate.closest("body");
 console.log("Ancestral (body):", ancestralBody);
 
 // ============================================================
@@ -68,11 +68,11 @@ console.log("Último filho:", lastChild);
 // ============================================================
 
 // elemento anterior
-const previousSibling = itemToNavegate.previousElementSibling;
+const previousSibling = itemToNavigate.previousElementSibling;
 console.log("Anterior:", previousSibling);
 
 // próximo elemento
-const nextSibling = itemToNavegate.nextElementSibling;
+const nextSibling = itemToNavigate.nextElementSibling;
 console.log("Próximo:", nextSibling);
 
 // ============================================================
@@ -80,79 +80,117 @@ console.log("Próximo:", nextSibling);
 // ============================================================
 
 const title = document.getElementById("titulo");
+console.log("Title element:", title);
 
 // textContent: altera apenas texto puro (ignora HTML)
-console.log(title.textContent); // Curso de JavaScript
 title.textContent = "Curso DOM JavaScript";
+console.log("textContent:", title.textContent); // Curso DOM JavaScript
 
-// innerText: respeita estilo visual do CSS
+// innerText: obtém ou altera apenas o texto visível ao usuário
 title.innerText = "Curso completo de front-end";
+console.log("innerText:", title.innerText); // Curso completo de front-end
 
 // innerHTML: permite inserir HTML dentro do elemento
 title.innerHTML = "<strong>Curso completo de front-end</strong>";
+console.log("innerHTML:", title.innerHTML);
 
 // ============================================================
 // VALUE (INPUTS / FORMULÁRIOS)
 // ============================================================
 
 const input = document.getElementById("nome");
-console.log(input.value); // Sabrina
+console.log("input.value:", input.value); // Sabrina
 
 input.value = "Sabrina B.";
+console.log("input.value:", input.value); // Sabrina B.
+console.log("input.getAttribute('value'):", input.getAttribute("value")); // valor inicial do HTML
 
 const email = document.querySelector("#email");
 email.value = "teste@email.com";
+console.log("email.value:", email.value);
 
-const mensagem = document.querySelector("#mensagem");
-console.log(mensagem.value);
+const message = document.querySelector("#mensagem");
+console.log("message.value:", message.value);
 
-const linguagem = document.querySelector("#linguagem");
-console.log(linguagem.value);
+const language = document.querySelector("#linguagem");
+console.log("language.value:", language.value);
 
 // ============================================================
 // ADIÇÃO DE ELEMENTOS
 // ============================================================
 
+console.log("\n createElement():");
+
+// Criação de um novo elemento em memória (não aparece ainda no DOM)
 const newListItem = document.createElement("li");
 newListItem.textContent = "TypeScript";
 
-list.appendChild(newListItem); // adiciona no final
+console.log("Elemento criado:", newListItem);
 
-// Append também pode ser usado para adicionar múltiplos elementos
-list.append();
+// ============================================================
+// appendChild()
+// ============================================================
 
-// insertBefore(): insere um elemento antes de outro elemento específico
-const myList = document.querySelector(".my-list");
+console.log("\n appendChild():");
+console.log("Lista antes:", list);
+
+// adiciona o elemento no final da lista
+list.appendChild(newListItem);
+
+console.log("Lista depois do appendChild:", list);
+
+// ============================================================
+// append()
+// ============================================================
+console.log("\n append():");
+
+// cria novos elementos (IMPORTANTE: não reutilizar os mesmos)
+const secondNewItem = document.createElement("li");
+secondNewItem.textContent = "React";
+
+const thirdItem = document.createElement("li");
+thirdItem.textContent = "Vue";
+
+// adiciona múltiplos elementos de uma vez
+list.append(secondNewItem, thirdItem);
+console.log("Lista depois do append:", list);
+
+// ============================================================
+// insertBefore()
+// ============================================================
+console.log("\n insertBefore():");
+
+// novo elemento a ser inserido
 const myListNewItem = document.createElement("li");
 myListNewItem.textContent = "Angular";
 
-// seleciona o segundo item da lista ("CSS")
-const referenceItem = myList.children[1];
+// elemento de referência (posição onde será inserido)
+const referenceItem = list.children[1];
+console.log("Elemento de referência:", referenceItem);
 
-// insere "Angular" antes de "CSS"
-myList.insertBefore(myListNewItem, referenceItem);
-console.log("myList:", myList);
+// insere antes do elemento de referência
+list.insertBefore(myListNewItem, referenceItem);
 
-// Remove(): remove um elemento específico
-console.log("myList:", myList);
-const secondItem = document.querySelectorAll(".my-list li")[1];
-console.log("Item que será removido:", secondItem);
-secondItem.remove();
-console.log("myList:", myList);
-
-// RemoveChild(): remove um elemento filho específico
-console.log("myList:", myList);
-const firstItem = myList.firstElementChild;
-console.log("Lista antes da remoção:", myList);
-myList.removeChild(firstItem);
-console.log("myList:", myList);
+console.log("Lista depois do insertBefore:", list);
 
 // ============================================================
 // REMOÇÃO DE ELEMENTOS
 // ============================================================
-
-// remove segundo item da classe .item
+// Remove(): remove um elemento específico
+console.log("\n remove():");
+console.log("list:", list);
+const secondItem = list.children[1]; // children muda dinamicamente depois de remoções
+console.log("Item que será removido:", secondItem);
 secondItem.remove();
+console.log("list:", list);
+
+// RemoveChild(): remove um elemento filho específico
+const firstItem = list.firstElementChild;
+
+console.log("\n removeChild():");
+console.log("Lista antes da remoção:", list);
+list.removeChild(firstItem);
+console.log("Lista após a remoção:", list);
 
 // ============================================================
 // SUBSTITUIÇÃO DE ELEMENTOS
@@ -161,18 +199,65 @@ secondItem.remove();
 const newElement = document.createElement("li");
 newElement.textContent = "HTML Semântico";
 
-const itemAtual = list.children[0];
-list.replaceChild(newElement, itemAtual);
+const newElements = [];
+for (let i = 0; i <= 1; i++) {
+  const item = document.createElement("li");
+  item.textContent = "Filho adicionado dinamicamente";
+  newElements.push(item);
+}
+
+// ReplaceChild(): substitui um filho específico do elemento
+console.log("\n ReplaceChild():");
+const lista = list.cloneNode(true);
+const primeiroItemLista = lista.firstElementChild;
+
+const novoItemLista = document.createElement("li");
+novoItemLista.textContent = "CSS 3";
+console.log("Lista antes:", lista.innerHTML);
+console.log("Filho que será substituído:", primeiroItemLista.outerHTML);
+
+lista.replaceChild(novoItemLista, primeiroItemLista);
+console.log("Lista depois:", lista.innerHTML);
+
+// ReplaceChildren(): substitui todos os filhos do elemento
+console.log("\n ReplaceChildren():");
+const lista2 = list.cloneNode(true);
+console.log("Lista2:", lista2.innerHTML);
+
+lista2.replaceChildren(...newElements); // o operador spread (...) é usado para passar cada elemento do array como argumento separado
+console.log("Lista2 atualizada:", lista2.innerHTML);
+
+// ============================================================
+// Manipulação de atributos html
+// ============================================================
+console.log("\n getAttribute() e setAttribute():");
+const card = document.querySelector(".card");
+const dataType = card.getAttribute("data-tipo");
+console.log("dataType:", dataType);
+
+// setAttribute(): adiciona um atributo ao elemento
+card.setAttribute("data-status", "ativo");
+
+// getAttribute(): obtém o valor do atributo
+let dataStatus = card.getAttribute("data-status");
+console.log("dataStatus:", dataStatus);
+
+// dataset: altera valores de um atributo
+card.dataset.status = "inativo";
+dataStatus = card.getAttribute("data-status");
+console.log("dataStatus:", dataStatus);
 
 // ============================================================
 // ESTILOS CSS
 // ============================================================
-
-const card = document.querySelector(".card");
-
 // Alterando estilos inline
+// style: permite alterar estilos CSS diretamente no elemento
+console.log("\n style(): ", card.style);
 card.style.backgroundColor = "blue";
 card.style.color = "white";
+
+// classList: permite adicionar, remover e alternar classes CSS
+console.log("\n classList(): ", card.classList);
 
 // Adicionando classe CSS
 card.classList.add("ativo");
@@ -180,14 +265,18 @@ card.classList.add("ativo");
 // Removendo classe
 card.classList.remove("card");
 
-// Alternando classe
-card.classList.toggle("destaque");
+// Toggle: adiciona a classe se não existir, remove se existir
+card.classList.toggle("card"); // card adicionado
+card.classList.toggle("ativo"); // ativo removido
 
 // Verificando se possui uma classe
-console.log(card.classList.contains("ativo")); // true
+console.log("classList.contains ativo?", card.classList.contains("ativo")); // true
 
-// Alterando todas as classes
+// Sobrescreve todas as classes existentes
 card.className = "card destaque";
 
 // Obtendo estilo calculado pelo navegador
-console.log(getComputedStyle(card).backgroundColor);
+console.log(
+  "\n getComputedStyle().backgroundColor:",
+  getComputedStyle(card).backgroundColor,
+);
