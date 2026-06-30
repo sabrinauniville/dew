@@ -12,9 +12,12 @@
 
 <body>
   <section class="intro">
-    <h1 id="titulo">JavaScript</h1>
-
-    <p>Parágrafo introdutório.</p>
+    <h1 id="titulo">
+      Aprendendo
+      <span class="oculto" style="visibility: hidden;">JavaScript</span>
+      Front-end
+    </h1>
+    <p>Parágrafo <em>introdutório</em>.</p>
   </section>
 
   <section class="content">
@@ -22,14 +25,27 @@
     <p class="item">Primeiro item.</p>
     <p class="item">Segundo item.</p>
 
-    <div class="card" data-tipo="produto">Card 1</div>
-    <div class="card" data-tipo="produto">Card 2</div>
+    <div class="lists">
+      <div class="cards">
+        <span class="card" data-tipo="produto">Card filho 1</span>
+        <span class="card" data-tipo="produto">Card filho 2</span>
+        <span class="card" data-tipo="produto">Card filho 3</span>
+        <span class="card" data-tipo="produto">Card filho 4</span>
+        <span class="card" data-tipo="produto">Card filho 5 (tenho filhos)
+          <div class="cards-grandchild">
+            <span class="card-grandchild">Card neto 1</span>
+            <span class="card-grandchild">Card neto 2</span>
+            <span class="card-grandchild">Card neto 3</span>
+          </div>
+        </span>
+      </div>
 
-    <ul class="my-list">
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-    </ul>
+      <ul class="texts">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+      </ul>
+    </div>
   </section>
 
   <section class="paragrafos">
