@@ -1,0 +1,80 @@
+.home-page {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.hero {
+  margin-bottom: 1.5rem;
+}
+
+.hero h2 {
+  margin-bottom: 0.5rem;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.chip {
+  background: #e2e8f0;
+  color: #0f172a;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.concepts-box {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.status {
+  padding: 0.75rem 1rem;
+  background: #e2e8f0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.status.error {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.content-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  align-items: start;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.text-block h3 {
+  margin-top: 0;
+}
+
+.date {
+  color: #64748b;
+  font-weight: 600;
+}
+
+img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .content-card {
+    grid-template-columns: 1fr;
+  }
+}

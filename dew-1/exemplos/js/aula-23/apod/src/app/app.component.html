@@ -1,0 +1,21 @@
+<main class="page">
+  <section class="hero">
+    <h1>{{ title }} - NASA</h1>
+    <p>Acesse diariamente para ver uma nova imagem ou vídeo inédito do universo,
+      acompanhado de um breve texto explicativo escrito por um astrônomo profissional.</p>
+  </section>
+
+  <section class="nasa-card">
+    <h2>Conteúdo do dia</h2>
+
+    <div *ngIf="loading">Carregando...</div>
+    <div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <div *ngIf="photo && !loading">
+      <h3>{{ photo.title }}</h3>
+      <p>{{ photo.date }}</p>
+      <img [src]="photo.url" [alt]="photo.title" />
+      <p>{{ photo.explanation }}</p>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,26 @@
+<section class="home-page">
+  <header class="hero">
+    <h1>APOD (Astronomy Picture of the Day)</h1>
+    <p>Acesse diariamente para ver uma nova imagem ou vídeo inédito do universo, acompanhado de um breve texto explicativo escrito por um astrônomo profissional.</p>
+  </header>
+
+  @if (isLoading) {
+  <div class="status">Carregando imagem...</div>
+  }
+
+  @if (hasError) {
+  <div class="status error">{{ statusMessage() }}</div>
+  }
+
+  @if (photoOfTheDay) {
+  <article class="content-card">
+    <div class="text-block">
+      <h3>{{ photoOfTheDay.title | uppercase }}</h3>
+      <p class="date">{{ photoOfTheDay.date | date:'dd/MM/yyyy' }}</p>
+      <p>{{ photoOfTheDay.explanation | shortenText:180 }}</p>
+    </div>
+
+    <img [src]="photoOfTheDay.url" [alt]="photoOfTheDay.title" />
+  </article>
+  }
+</section>
