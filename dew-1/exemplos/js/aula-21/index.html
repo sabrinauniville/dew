@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APOD (Astronomy Picture of the Day) - NASA</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./environment.js" defer></script>
+  <script src="./service.js" defer></script>
+  <script src="./app.js" defer></script>
+  <!-- <script src="./samples.js" defer></script> -->
+</head>
+
+<body>
+
+  <section class="home-page">
+
+    <section class="intro">
+
+      <h1 id="title">
+        APOD (Astronomy Picture of the Day) - NASA
+      </h1>
+
+      <p>
+        Acesse diariamente para visualizar uma nova imagem ou vídeo do universo,
+        acompanhado de um breve texto explicativo escrito por um astrônomo profissional.
+      </p>
+
+    </section>
+
+    <article class="content-card">
+
+      <div class="text-block">
+
+        <h3 id="photo-title">
+          Carregando...
+        </h3>
+
+        <p class="date" id="photo-date"></p>
+
+        <p id="photo-description"></p>
+
+      </div>
+
+      <img id="photo-image" src="" alt="Imagem do dia da NASA">
+
+    </article>
+
+    <button id="update-data" type="button" disabled>
+      Clique para atualizar a imagem
+    </button>
+
+    <p id="get-data-response">
+      Aguardando resposta da API da NASA...
+    </p>
+
+    <p id="update-data-response"></p>
+
+  </section>
+
+</body>
+
+</html>

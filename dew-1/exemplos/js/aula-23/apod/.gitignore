@@ -54,6 +54,10 @@ Desktop.ini
 .env.development
 .env.production
 .env.test
+environment.prod.ts
+environment.ts
+environment.prod.js
+environment.ts
 
 # Angular environments (caso contenham segredos)
 src/environments/environment.local.ts

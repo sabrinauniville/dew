@@ -237,3 +237,9 @@ Essa divisão ajuda a encontrar arquivos com mais facilidade e a manter o projet
 ## Observação importante
 
 Este projeto usa uma chave pública da NASA para fins de demonstração. Em projetos reais, é melhor guardar a chave em variáveis de ambiente e não expor valores sensíveis no código.
+
+---
+
+# Licença
+
+Este projeto foi desenvolvido exclusivamente para fins educacionais para aprendizado de desenvolvimento web.
