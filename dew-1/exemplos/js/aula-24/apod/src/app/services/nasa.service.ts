@@ -11,6 +11,7 @@ export class NasaService {
   constructor(private http: HttpClient) {}
 
   getPhotoOfTheDay(): Observable<ApodResponse> {
+    // CONCEITO: Consumir a API da NASA
     return this.http.get<ApodResponse>(this.apiUrl);
   }
 }
