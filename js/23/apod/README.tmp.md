@@ -1,7 +1,7 @@
 # astronomy-picture-day - Angular 19 APOD
 
 Aplicação Angular 19 que consome a API pública NASA APOD para exibir a imagem ou vídeo do dia.
-Inclui estrutura de páginas, serviços e arquivos de ambiente para configuração de chaves.
+Inclui estrutura de páginas, serviços e variáveis de ambiente para chaves sensíveis.
 
 ## Tecnologias e características
 
@@ -11,8 +11,8 @@ Inclui estrutura de páginas, serviços e arquivos de ambiente para configuraç�
 - CSS
 - RxJS
 - HttpClient
-- Rotas e componentes bem organizados
-- Configuração de ambiente para chaves da API
+- Rotas e componentes organizados
+- Configuração de ambiente para chaves
 
 ## Setup
 
@@ -34,7 +34,11 @@ Build de produção:
 npm run build
 ```
 
-Antes de rodar, verifique `src/environments/environment.ts` e `src/environments/environment.prod.ts` e adicione sua chave da NASA em `nasaApiKey`.
+Antes de rodar, verifique os arquivos:
+- `src/environments/environment.ts`
+- `src/environments/environment.prod.ts`
+
+e adicione sua chave da NASA em `nasaApiKey`.
 
 ## Autor
 

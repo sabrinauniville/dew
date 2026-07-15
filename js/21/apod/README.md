@@ -1,203 +1,49 @@
-# Astronomy Picture of the Day (NASA)
+# APOD - NASA Astronomy Picture of the Day (Vanilla JS)
 
-Este projeto foi desenvolvido para ensinar, de forma prática e didática, os principais conceitos do desenvolvimento Web utilizando **HTML**, **CSS** e **JavaScript moderno (ES6+)**, consumindo uma API pública da NASA.
+Este projeto exibe a imagem ou vídeo diário da NASA APOD usando HTML, CSS e JavaScript moderno.
+A aplicação consome a API pública da NASA para apresentar título, data, descrição e mídia do dia com uma estrutura simples e didática.
 
-A aplicação consulta diariamente a API **Astronomy Picture of the Day (APOD)** e apresenta a imagem (ou vídeo) do dia juntamente com seu título, data e descrição.
+## Tecnologias utilizadas e características
 
-Todo o projeto foi organizado de forma simples para facilitar o aprendizado de quem está iniciando no desenvolvimento Web, mostrando como separar responsabilidades entre os arquivos da aplicação.
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Fetch API
+- Projeto estático, sem build
+- Arquivos separados por responsabilidade
 
----
+## Setup
 
-# Tecnologias utilizadas
+Requisitos:
+- Navegador moderno
+- Node.js e npm (opcional, para servidor local)
 
-* HTML5
-* CSS3
-* JavaScript (ES6+)
-* Fetch API
-* API pública da NASA
+Como rodar:
 
----
+```bash
+cd js/21/apod
+# Abra index.html diretamente no navegador ou use um servidor local
+npx http-server
+```
 
-# API utilizada
-
-A aplicação consome a API pública **Astronomy Picture of the Day (APOD)** disponibilizada pela NASA.
-
-Documentação oficial:
-
-<https://api.nasa.gov/>
-
-Endpoint utilizado:
+Abra no navegador:
 
 ```text
-https://api.nasa.gov/planetary/apod
+http://localhost:8080
 ```
 
-A resposta da API contém diversas informações, entre elas:
+Antes de rodar, verifique `environment.js` e adicione sua chave da NASA.
 
-* título da imagem;
-* data da publicação;
-* descrição;
-* URL da imagem;
-* tipo da mídia.
+## Autor
 
----
+Sabrina B. Moreira
 
-# Estrutura do projeto
+Email: sabrina.moreira26@univille.br
 
-```text
-js/
-└── aula-21/
-    │
-    ├── app.js
-    ├── environment.js
-    ├── service.js
-    ├── style.css
-    ├── index.html
-    └── README.md
-```
+## Licença
 
----
+MIT License
 
-# Explicação dos arquivos
-
-## index.html
-
-É a página principal da aplicação.
-
-Nele é definida toda a estrutura HTML que será apresentada ao usuário.
-
-Também realiza o carregamento dos arquivos JavaScript responsáveis pelo funcionamento da aplicação.
-
----
-
-## style.css
-
-Arquivo responsável pela aparência da aplicação.
-
-Nele são definidos:
-
-* cores;
-* fontes;
-* espaçamentos;
-* posicionamento dos elementos;
-* layout da página.
-
----
-
-## app.js
-
-É o arquivo principal da aplicação.
-
-Suas responsabilidades são:
-
-* iniciar a aplicação;
-* solicitar os dados da API;
-* atualizar a interface;
-* tratar possíveis erros;
-* manipular os elementos da página.
-
----
-
-## service.js
-
-Centraliza toda a comunicação com a API da NASA.
-
-Sempre que a aplicação precisar consultar a API, essa responsabilidade ficará concentrada neste arquivo.
-
-Essa separação torna o código mais organizado e facilita futuras manutenções.
-
----
-
-## environment.js
-
-Arquivo utilizado para centralizar as configurações da aplicação.
-
-Neste projeto ele armazena:
-
-* URL da API;
-* chave pública da NASA.
-
-Exemplo:
-
-```javascript
-const environment = {
-
-    nasaApiUrl: "https://api.nasa.gov/planetary/apod",
-
-    nasaApiKey: "SUA_CHAVE_DA_NASA"
-
-};
-```
-
-Caso futuramente seja necessário alterar a URL da API ou utilizar outra chave, basta modificar este arquivo.
-
----
-
-## README.md
-
-Arquivo responsável pela documentação do projeto.
-
-Contém informações sobre instalação, configuração, estrutura e funcionamento da aplicação.
-
----
-
-# Configurando a aplicação
-
-Antes de executar o projeto, abra o arquivo:
-
-```text
-environment.js
-```
-
-Configure a URL da API e sua chave pública da NASA.
-
-Exemplo:
-
-```javascript
-const environment = {
-
-    nasaApiUrl: "https://api.nasa.gov/planetary/apod",
-
-    nasaApiKey: "SUA_CHAVE_DA_NASA"
-
-};
-```
-
----
-
-# Como obter uma chave da NASA
-
-A NASA disponibiliza gratuitamente uma chave de acesso para utilização de suas APIs.
-
-1. Acesse:
-
-```text
-https://api.nasa.gov/
-```
-
-1. Faça um cadastro gratuito.
-
-2. Gere sua chave de acesso.
-
-3. Copie a chave para o arquivo:
-
-```text
-environment.js
-```
-
----
-
-# Como executar o projeto
-
-Como este projeto utiliza apenas HTML, CSS e JavaScript, **não** é necessário instalar bibliotecas ou executar comandos de compilação.
-
-Basta abrir o arquivo:
-
-```text
-index.html
-```
-
-em um navegador moderno.
 
 ## Utilizando o Visual Studio Code
 

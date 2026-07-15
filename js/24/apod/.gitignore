@@ -34,11 +34,15 @@ pids
 .cache
 
 # IDEs
+.vscode
 .vscode/*
 !.vscode/extensions.json
 !.vscode/launch.json
 !.vscode/tasks.json
 !.vscode/settings.json
+
+# Angular CLI
+.angular
 
 .idea/
 *.iml

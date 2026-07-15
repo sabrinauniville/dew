@@ -1,7 +1,7 @@
 # astronomy-picture-day - Angular 19 APOD com exemplos
 
 Aplicação Angular 19 que consome a API NASA APOD e inclui componentes extras para estudo.
-Este projeto demonstra como organizar rotas, serviços, pipes e exemplos em uma aplicação didática.
+O projeto mostra como organizar rotas, serviços, pipes e exemplos em uma aplicação didática.
 
 ## Tecnologias e características
 
@@ -34,7 +34,11 @@ Build de produção:
 npm run build
 ```
 
-Antes de rodar, verifique `src/environments/environment.ts` e `src/environments/environment.prod.ts` e insira sua chave da NASA em `nasaApiKey`.
+Antes de rodar, verifique os arquivos:
+- `src/environments/environment.ts`
+- `src/environments/environment.prod.ts`
+
+e insira sua chave da NASA em `nasaApiKey`.
 
 ## Autor
 
